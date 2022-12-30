@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font: Normal 18pt Arial;
+        }
+
+        #txtn1,
+        #txtn2 {
+            width: 50px;
+            height: 20px;
+        }
+
+        #button {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Comparativo</h1>
+    <p>digite dois numeros para cmparação:</p>
+    Primeiro Numero: <input type="number" name="txtn1" id="txtn1"><br>
+    Segundo Numero: <input type="number" name="txtn2" id="txtn2"> <br>
+    <input type="button" value="verificar" id="button" onclick="verificar()">
+    <section id="res">
+        ...
+    </section>
+
+    <script>
+       
+        function verificar() {
+            var numero1 = document.querySelector("input#txtn1")
+            var numero2 = document.querySelector("input#txtn2")
+            var res = document.getElementById("res")
+
+            var n1 = Number(numero1.value)
+            var n2 = Number(numero2.value)
+
+
+
+
+
+            if (n1 > n2) {
+                res.innerHTML = "O primeiro valor é maior."
+            } else if (n2 > n1) {
+                res.innerHTML = "O segundo valor é maior."
+            } else if (n1 == n2) {
+                res.innerHTML = "Não existe valor maior, os dois valores são iguais"
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

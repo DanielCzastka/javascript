@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var CigPd = Number(prompt('Quantidade de cigaros por dia: '))
+        var Anos = Number(prompt('Quantos anos você fuma: '))
+        var PerC = CigPd * 10
+        var DiasA = Anos * 365  
+        var PerdaM = PerC * DiasA
+        var PerD = PerdaM / 1440
+        var AnosP = PerD / 365
+        document.write('Total perdido em anos foi de: ' + AnosP)
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Program</title>
+    <style>
+        body{
+            background-color: cadetblue;
+            color: #fff;
+            font: normal 20px arial;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Hello World!</h1>
+
+    <code>
+        var n1 = prompt('Digite um numero: ') // prompt retorna sempre string
+        var n2 = prompt ('Digite outro numero: ')
+        var soma = n1 + n2
+        alert (soma)   // o resultado de 10 + 10 vai ser 1010
+
+        -> //TEM QUE CONVERTER 
+
+        // - number.parseInt(n) PARA NUMERO INTEIRO (int)
+        // - nunber.parseFloat(n) PARA NUMERO REAL  (float(ponto))
+
+
+        var n1 = parseInt(prompt('Digite um numero: '));
+        var n2 = parseFloat(prompt('Digite outro numero: '));
+        var soma = n1 + n2
+        alert("A soma dos numero é: " + soma);        
+
+        -> // - number(n) O JAVA DECIDE QUANDO É NESSESSARIO SER INTEIRO OU REAL
+
+        var n1 = Number(prompt('Digite um numero: '));
+        var n2 = Number(prompt('Digite outro numero: '));
+        var soma = n1 + n2
+        alert("A soma dos numero é: " + soma);
+        
+        
+        -> //pode transformar numero para a String 
+        var n1 = String(N)
+        var n2 = N.String
+
+        var n1 = Number(prompt('Digite um numero: '));
+        var n2 = Number(prompt('Digite outro numero: '));
+        var soma = n1 + n2
+        alert("A soma dos numero é: " + String(soma);
+
+
+        -> s.lenght TAMANHO DA STRING 
+
+        var nome = prompt('Qual é o seu nome? ')
+        document.write('Seu no tem ' + nome.length + ' letras ')
+
+        -> s.toLowerCase() DEIXA LETRAS MINUSCULAS
+
+        var nome = prompt('Qual é o seu nome? ')
+        document.write('Seu no tem ' + nome.length + ' letras ')
+        document.write('Seu nome em maiusculas ' + nome.toLowerCase()  + ' ficou bom? ')
+
+
+       -> s.toUpperCase() DEIXA LETRAS MAIUSCULAS
+
+        var nome = prompt('Qual é o seu nome? ')
+        document.write('Seu no tem ' + nome.length + ' letras ')
+        document.write('Seu nome em maiusculas ' + nome.toUpperCase()  + ' ficou bom? ')
+
+        ->  n1.toFixed(2) PARA MUDAR NUMERO 2 CASAS APOS O .
+        -> .replace('.',",") PARA MUDAR DO PONTO PARA VIRGULA
+
+        var n1 = 145.5 
+        document.writeln(n1.toFixed(2).replace('.',",")) 
+        
+        -> n1.toLocalString('pt-BR', {style: 'currency', currency: 'BRL'})  COLOCAR R$ ANTES DO NUMERO
+
+        document.writeln(n1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}))
+
+        document.writeln(n1.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'}))
+       
+        document.writeln(n1.toLocaleString('pt-BR', {style: 'currency', currency: 'EUR'})) 
+    
+
+    
+    </code>
+
+    <script>
+        
+        var n1 = Number(prompt('Digite um numero: '));
+        var n2 = Number(prompt('Digite outro numero: '));
+        var soma = n1 + n2
+        alert('A soma dos numero é: ' + String(soma));     
+        
+
+        
+        
+    </script>
+</body>
+</html>

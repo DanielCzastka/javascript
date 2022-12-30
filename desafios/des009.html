@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font: normal 18pt arial;
+        }
+
+        button{
+            font-size: 15pt;
+            padding: 30px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajuste salarial</h1>
+<button id="button" onclick="calcular()">Reajuste Sálario</button>
+<div id="res">
+    Clique no botão para iniciar.
+</div>
+
+<script>
+    function calcular(){
+    let res = document.getElementById("res")
+    let nome = window.prompt("Qual é o nome do fncionario?")
+    let sal = Number(window.prompt(`Qual é o sálario do ${nome} ?`))
+    let porc = Number( window.prompt(`O sálario do ${nome} vai ser reajustado em qual porcentagem?`))
+
+    let cal = (sal * porc) / 100
+    let Nsal = sal + cal  
+
+    res.innerHTML = `<h2> ${nome} recebeu um almento sálarial!</h2>`
+    res.innerHTML += `<p>O salário atual era ${sal.toLocaleString("pt-br", {style: "currency", currency: "BRL"})} Reais.</p>`
+    res.innerHTML += `<p>Com um almento de ${porc}%, o sálario vai almentar ${cal.toLocaleString("pt-br", {style: "currency", currency: "BRL"})} no próximo mês.</p>`
+    res.innerHTML += `E a partir daí, ${nome} vai passar a ganhar ${Nsal.toLocaleString("pt-br", {style: "currency", currency: "BRL"})}.` 
+    
+    }
+</script>
+</body>
+</html>

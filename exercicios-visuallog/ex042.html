@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(12, 12, 11);
+            color: white;
+            text-align: center;
+            font: normal 18pt arial;
+            border: solid 2px white;
+            border-radius: 30px;
+            width: 800px;
+            margin: auto;
+            margin-top: 30px;
+            
+        }
+
+        input{
+            width: 100px;
+            border-radius: 30px;
+            font-size: 15pt;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <h1>Contagem Inteligente</h1>
+    <input type="number" name="numero" id="txtnumber">
+    <input type="button" value="Contar" id="button" onclick="contar()">
+    <p id="res">
+
+    </p>
+
+    <script>
+        function contar(){
+            let num = document.getElementById("txtnumber")
+            let res = document.getElementById("res")
+
+            if (num.value <= 0 ){
+                window.alert("Verifique os dados e tente novamente.")
+            }else{
+                for(c = 1; c <= num.value; c++){
+                res.innerHTML += (`${c} ,`)
+                }
+            }
+            res.innerHTML += " Acabou!"
+
+
+
+
+
+
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

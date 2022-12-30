@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>uber</h1>
+    <p>Qual a distancia que deseja percorrer?</p>
+    <input type="number" name="Km" id="Km">
+    <input type="button" value="caucular" id="caucular" onclick="caucular()">
+    <div id="res">
+    ...
+    </div>
+
+    <script>
+        function caucular() {
+            var dis = document.getElementById("Km")
+            var resp = document.getElementById("res")
+            var km = Number(dis.value)
+            if (km <= 200) {
+                var ppkm = km * 0.50
+                resp.innerHTML = `Sua viajem custará ${ppkm} Reais`
+            }else{
+                var ppkm = km * 0.45
+                resp.innerHTML = `Sua viajem custará ${ppkm} Reais`
+            }
+            
+
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font: normal 16pt arial;
+
+        }
+
+        button{
+            font-size: 15pt;
+            padding: 40px;
+        }
+
+        p{
+            font-size: 15pt;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com Dados v2.0</h1>
+    <button onclick="clicou()">Clique para Começar</button>
+    <div id="res">
+        <p>Aqui vai aparecer o resultado...</p>
+    </div>
+
+    <script>
+        function clicou(){
+            var res = document.getElementById("res")
+            var nome = window.prompt("Qual é o seu nome? ")
+            res.innerHTML = `Olá <strong>${nome}</strong>! É um przer te conhecer! &#x1F596;`     
+       
+        }
+    </script>
+
+
+</body>
+</html>

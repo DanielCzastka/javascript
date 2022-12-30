@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou Impar</title>
+<style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+    body{
+        font: normal 17pt Arial;
+    }
+
+    h1{
+        font-family: "pacifico";
+        font-weight: normal;
+    }
+
+    button{
+        font-size: 15pt;
+        padding: 40px;
+    }
+
+
+</style>
+
+
+</head>
+<body>
+    <h1>É par ou é impar?</h1>
+    <button id="button" onclick="calcular()">Clique para iniciar</button>
+    <p id="res">
+
+    </p>
+
+    <script>
+        function calcular(){
+            i = Number(window.prompt("Digite um numero:"))
+            res = document.getElementById("res")
+            if(i % 2 == 0){
+            res.innerHTML = `O numero ${i} que foi digitado é <strong> PAR! </strong>`
+            }else{
+                res.innerHTML = `O numero ${i} que foi digitado é <strong> IMPAR! </strong>`
+            }
+
+
+
+
+
+        }
+
+
+    </script>
+</body>
+</html>

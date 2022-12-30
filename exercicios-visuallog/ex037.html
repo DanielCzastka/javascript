@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+        body {
+            background-color: rgba(128, 128, 128, 0.261);
+            font: normal 18pt arial;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'pacifico';
+            font-weight: normal;
+
+        }
+
+        section {
+            background-color: white;
+            width: 600px;
+            height: 270px;
+            padding: 20px;
+            margin: auto;
+            border: solid 1px;
+            border-radius: 15px;
+            box-shadow: 1px 1px 3px;
+
+        }
+
+        #txtsal {
+            width: 100px;
+            height: 20px;
+            border-radius: 10px;
+            font-size: 15pt;
+        }
+
+        #txtano {
+            width: 50px;
+            height: 20px;
+            border-radius: 10px;
+            font-size: 15pt;
+        }
+
+        #button {
+            background-color: rgba(80, 80, 255, 0.775);
+            color: white;
+            font-size: 15pt;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        #button:hover {
+            background-color: rgba(80, 80, 255, 0.591);
+            font-size: 18pt;
+        }
+
+        article {
+            background-color: white;
+            width: 700px;
+            height: 27px;
+            padding: 20px;
+            margin: auto;
+            margin-top: 12px;
+            border: solid 1px;
+            border-radius: 15px;
+            box-shadow: 1px 1px 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Reajuste sálarial</h1>
+    <section>
+        <p>
+            Sálario: <input type="number" name="sal" id="txtsal">
+        </p>
+        <p>
+            <input type="radio" name="sex" id="txtsexM" checked>
+            <label for="txtsexM">M</label>
+            <input type="radio" name="sex" id="txtsexF">
+            <label for="txtsexF">F</label>
+        </p>
+        <p>
+            Tempo de trabalho: <input type="number" name="ano" id="txtano">
+        </p>
+        <p>
+            <input type="button" value="Calcular" id="button" onclick="calcular()">
+        </p>
+    </section>
+    <article id="art">
+        A resposa vai aparecer aqui...
+    </article>
+
+    <script>
+        function calcular() {
+            let sal = document.getElementById("txtsal")
+            let sex = document.getElementsByName("sex")
+            let ano = document.getElementById("txtano")
+            let art = document.getElementById("art")
+            let n1 = Number(sal.value)
+            let n2 = Number(ano.value)
+
+
+            if (sex[0].checked) {
+                if (n2 <= 20) {
+                    let prc = (n1 * 3) / 100
+                    let tot = n1 + prc
+                    art.innerHTML = `O seu novo sálario é de ${tot.toLocaleString("pt-br", { style: "currency", currency: "BRL" })} Reais.`
+                } else if (n2 <= 30) {
+                    let prc = (n1 * 13) / 100
+                    let tot = n1 + prc
+                    art.innerHTML = `O seu novo sálario é de ${tot.toLocaleString("pt-br", { style: "currency", currency: "BRL" })} Reais.`
+                } else {
+                    let prc = (n1 * 25) / 100
+                    let tot = n1 + prc
+                    art.innerHTML = `O seu novo sálario é de ${tot.toLocaleString("pt-br", { style: "currency", currency: "BRL" })} Reais.`
+                }
+            } else {
+                if (n2 <= 15) {
+                    let prc = (n1 * 5) / 100
+                    let tot = n1 + prc
+                    art.innerHTML = `O seu novo sálario é de ${tot.toLocaleString("pt-br", { style: "currency", currency: "BRL" })} Reais.`
+                } else if (n2 <= 20) {
+                    let prc = (n1 * 12) / 100
+                    let tot = n1 + prc
+                    art.innerHTML = `O seu novo sálario é de ${tot.toLocaleString("pt-br", { style: "currency", currency: "BRL" })} Reais.`
+                } else {
+                    let prc = (n1 * 23) / 100
+                    let tot = n1 + prc
+                    art.innerHTML = `O seu novo sálario é de ${tot.toLocaleString("pt-br", { style: "currency", currency: "BRL" })} Reais.`
+                }
+            }
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

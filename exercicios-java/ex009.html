@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+        h1{
+            font-weight: normal;
+            font-size: 32pt;
+            font-family: "pacifico";
+            margin: 25 10pxpx;
+        }
+
+        button{
+            font-size: 16pt;
+            padding: 40px 45px;
+        }
+
+        p{
+            font-size: 18pt;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contador de cliques</h1>
+
+    <button id="click" onclick="contar()">Clique em mim</button>
+    <button id="zerar" onclick="zerar()">Zerar o contador</button>
+    <div id="res">
+        ...
+    </div>
+
+    <script>
+        var C = 0
+        var res = document.getElementById("res")
+        res.innerHTML = `<p>O contador está com <mark>${C}</mark> cliques.</p>`
+
+        function contar(){
+            C++
+            res.innerHTML = `<p>O contador está com <mark>${C}</mark> cliques.</p>`
+        }
+        function zerar(){
+            C = 0
+            res.innerHTML = ``
+        }
+
+
+
+
+    </script>
+</body>
+</html>

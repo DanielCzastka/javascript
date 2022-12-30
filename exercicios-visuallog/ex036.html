@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgba(94, 81, 81, 0.34);
+            font: normal 18pt Arial;
+            font-style: italic;   
+            text-align: center;     
+        }
+
+        div{
+            background-color: white;
+            width: 600px;
+            height: 200px;
+            padding: 20px;
+            border: solid 1px;
+            border-radius: 20px;
+            margin: auto;
+            box-shadow: 1.5px 1px 5px;
+            
+        }
+
+        input{
+            width: 50px;
+            height: 35px;
+            font-size: 20pt;
+            margin: 7px;
+            border-radius: 25px;
+        }
+
+        #button{
+            background-color: rgba(16, 16, 255, 0.638);
+            color: white;
+            width: auto;
+            height: auto;
+            font-size: 13pt;
+            padding: 10px;
+        }
+
+       
+
+    </style>
+</head>
+<body>
+    <h1>Calcule a sua pontuação</h1>
+    <div>
+    <p>
+        Hrs:<input type="number" name="txthr" id="txthr">
+        <input type="button" value="Calcular" id="button" onclick="calcular()">
+    </p>
+    <p id="res">
+        ...
+    </p>
+    </div>
+    <script>
+        function calcular(){
+        let hrs = document.getElementById("txthr")
+        let res = document.getElementById("res")
+
+        let n1 = hrs.value
+
+        if(n1 <= 0 || n1 == ''){
+            window.alert("Verifique os dados e tente novamente.")
+        }else if(n1 <= 10){
+           pts = n1 * 2
+        }else if(n1 > 10 && n1 <= 20){
+            pts = n1 * 5
+        }else{
+            pts = n1 * 10
+        }
+        let din = pts * 0.05
+        res.innerHTML = (`<p >Você teve um total de ${pts}, e você ganhou ${din.toLocaleString('pt-br', {style: 'currency', currency:'BRL'})} Reais.</p>`)
+    }
+    </script>
+</body>
+</html>

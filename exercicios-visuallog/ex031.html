@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31</title>
+    <style>
+        body {
+            font: Normal 20pt Arial;
+            background-image: linear-gradient(to right, green, yellow);
+        }
+
+        section {
+            text-align: center;
+            background-color: white;
+            width: 700px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        input#txtb,
+        input#txtm {
+            width: 50px;
+            height: 50px;
+            margin: 30px;
+            font-size: 30pt;
+            text-align: center;
+
+        }
+
+        h1 {
+            font-size: 40pt;
+            color: rgb(95, 130, 27);
+            text-decoration: underline;
+            text-shadow: 1px 1px 5px;
+        }
+
+        p#res {
+            font-size: 20pt;
+        }
+
+        #res {
+            width: 500px;
+            height: 5px;
+            border: solid 1px;
+        }
+
+        #button {
+            font-size: 20pt;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        #button:hover {
+            background-color: green;
+        }
+
+        #button:active {
+            background-color: rgb(149, 160, 7);
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <h1>Bangu Vs Madureira</h1>
+        <p>Bangu <input type="number" name="bangu" id="txtb">X <input type="number" name="madureira" id="txtm">Madureira
+        </p>
+        <section id="res">
+
+        </section>
+        <p><input type="button" value="Verificar" id="button" onclick="verificar()"></p>
+    </section>
+
+
+    <script>
+        function verificar() {
+            let nl1 = document.getElementById("txtb")
+            let nl2 = document.getElementById("txtm")
+            let res = document.getElementById("res")
+
+            let n1 = Number(nl1.value)
+            let n2 = Number(nl2.value)
+
+            if (n1 == n2) {
+                res.innerHTML = "EMPATE"
+            } else if (n1 > n2) {
+                let dif = n1 - n2
+                switch (dif) {
+                    case 1:
+                        res.innerHTML = "PARTIDA NORMAL "
+                        break
+
+                    case 2:
+                        res.innerHTML = "PARTIDA NORMAL "
+                        break
+
+                    case 3:
+                        res.innerHTML = "PARTIDA NORMAL "
+                        break
+
+                    default:
+                        res.innerHTML = "GOLEADA "
+
+                }
+            } else {
+                let dif = n2 - n1
+                switch (dif) {
+                    case 1:
+                        res.innerHTML = "PARTIDA NORMAL "
+                        break
+
+                    case 2:
+                        res.innerHTML = "PARTIDA NORMAL "
+                        break
+
+                    case 3:
+                        res.innerHTML = "PARTIDA NORMAL "
+                        break
+
+                    default:
+                        res.innerHTML = "GOLEADA "
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body{
+            background-color: rgb(106, 161, 106);
+            font: Normal 20pt Arial;
+            text-align: center;
+            margin-top: 0;
+        }
+        h1{
+            background-color: green;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        p{
+            background-color: rgb(131, 183, 166);
+            width: 800px;
+            border-radius: 10px;
+            margin: auto;
+        }
+         
+       
+    </style>
+</head>
+<body>
+    <div id="div">
+        <h1>ALISTAMENTO MILITAR</h1>
+        <p>Seja bem vindo recruta, por favor responda as seguintes questões:</p> <hr>
+        Nome:
+        <input type="name" name = "nome" id="nome"><br>
+        Ano de Nac:
+        <input type="number" name="idade" id="idade">
+        <input type="button" value="Submit" onclick="caucular()">
+    </div>
+    <div>
+        <h2>RESULTADO:</h2>
+        <p id="res">...</p>
+    </div>
+    <script>
+        function caucular(){
+            var nome = document.getElementById('nome')
+            var ano = document.getElementById('idade')
+            var res = document.getElementById('res')
+            
+            var n1 = Number(ano.value)
+            var n2 = Number(2022)
+            var d = n2 - n1
+            if (d > 18){
+                res.innerHTML = 'Você tem ' + d + ' anos de idade, Bem vindo Recruta.'
+            }
+            else{
+                res.innerHTML =  'Você tem ' + d + ' anos, você ainda não tem idade o suficiente '
+            }
+
+        }
+    </script>
+</body>
+</html>

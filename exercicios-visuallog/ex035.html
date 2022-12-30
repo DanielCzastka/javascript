@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgba(104, 94, 94, 0.444);
+            font: Normal 15pt Arial;
+            text-align: center;
+        }
+
+        #div1{
+            background-color: white;
+            width: 600px;
+            padding: 20px;
+            border-radius: 15px;
+            margin: auto;
+        }
+        
+        p{
+            text-align: right;
+        }
+
+        input{
+            width: 90px;
+            height: 25px;
+            font-size: 16pt;
+        }
+
+        #button{ 
+            height: auto;
+            width: auto;
+            font-size: 15pt;
+            padding: 5px;
+           
+        }
+
+        #res{
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Calculadora aluguel de carro</h1>
+
+    <div id="div1">
+
+        <p><strong>Dias</strong>: <input type="number" name="txtdia" id="txtdia"></p>
+        <p><strong>Km Rodados: </strong><input type="number" name="txtkm" id="txtkm"></p>
+       
+        <p><strong>Carro</strong>:
+            <input type="radio" name="carro" id="popupar" checked>
+            <label for="popular">Popular</label>
+            <input type="radio" name="carro" id="luxo">
+            <label for="luxo">Luxo</label>
+        </p>
+        <p><input type="button" value="Calcular" id="button" onclick="calcular()"></p>
+        <hr>
+        <div>
+            <p id="res">
+                ...
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function calcular() {
+            let dia = document.getElementById("txtdia")
+            let km = document.getElementById("txtkm")
+            let res = document.getElementById("res")
+            carro = document.getElementsByName("carro")
+
+            if(carro[0].checked){
+                if(km.value <= 100){
+                   let dias = dia.value * 90
+                   let kmm = km.value * 0.20
+                   let tot = dias + kmm  
+                   res.innerHTML = `O aluguel do seu carro será de ${tot.toLocaleString("pt-br", {style: "currency", currency: "BRL"})} Reais.`
+                     
+                }else{
+                    let dias = dia.value * 90
+                   let kmm = km.value * 0.10
+                   let tot = dias + kmm  
+                   res.innerHTML = `O aluguel do seu carro será de ${tot.toLocaleString("pt-br", {style: "currency", currency: "BRL"})} Reais.`
+                }
+            }else{
+                if(km.value <= 200){
+                   let dias = dia.value * 150
+                   let kmm = km.value * 0.30
+                   let tot = dias + kmm  
+                   res.innerHTML = `O aluguel do seu carro será de ${tot.toLocaleString("pt-br", {style: "currency", currency: "BRL"})} Reais.`                     
+                }else{
+                    let dias = dia.value * 150
+                   let kmm = km.value * 0.25
+                   let tot = dias + kmm  
+                   res.innerHTML = `O aluguel do seu carro será de ${tot.toLocaleString("pt-br", {style: "currency", currency: "BRL"})} Reais.`                }
+            }
+
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

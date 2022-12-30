@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Verificar se é um triangulo</h1>
+    Lado 1<input type="number" name="n1" id="n1"><br>
+    Lado 2<input type="number" name="n2" id="n2"><br>
+    Lado 3<input type="number" name="n3" id="n3"><br>
+    <input type="button" value="verificar" id="button" onclick="vereficar()">
+    <section id="res">
+        ...
+    </section>
+    <script>
+
+
+        function vereficar() {
+            var lado1 = document.querySelector("input#n1")
+            var lado2 = document.querySelector("input#n2")
+            var lado3 = document.querySelector("input#n3")
+            var res = document.querySelector("section#res")
+
+            var n1 = Number(lado1.value)
+            var n2 = Number(lado2.value)
+            var n3 = Number(lado3.value)
+
+            if ((n1 + n2 > n3) && (n2 + n3 > n1) && (n3 + n1 > n2)) {
+                res.innerHTML = `<p>O segmento pode formar um TRIANGULO</p>`
+                if((n1 == n2) && (n2 == n3)){
+                    res.innerHTML += `Triangulo Equilátero`
+                }else if((n1 == n2) && (n2 != n3)){
+                    res.innerHTML += `Triangulo Isóceles`
+                }else if((n2 == n3) && (n1 != n2)){
+                    res.innerHTML += `Triangulo Isóceles`                    
+                }else if((n3 == n1) && (n2 != n1) ){
+                    res.innerHTML += `Triangulo Isóceles`
+                }else if((n1 != n2) && (n2!=n3)){
+                    res.innerHTML += `Triangulo Escaleno`
+                }
+            } else {
+                res.innerHTML = `O segmento NÃO pode formar um TRIANGULO`
+            }
+        }
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        body {
+            font: Normal 20pt Arial;
+            background-color: rgb(135, 135, 182);
+        }
+
+        div{
+            background-color: white;
+            width: 500px;
+            height: 300px;
+            padding: 30px;
+            border-radius: 20px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1{
+            font-family: "pacifico";
+            font-weight: normal;
+            color: blue;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        button{
+            font-size: 15pt;
+            padding: 10px;
+        }
+
+       
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h1>Sorteio...</h1>
+        <button id="button" onclick="sorteio()">Sortear</button>
+        <section id="res1"> </section>
+        <section id="res2">
+            <p></p>
+        </section>
+    </div>
+
+    <script>
+        function sorteio() {
+            var res1 = document.getElementById("res1")
+            var res2 = document.getElementById("res2")
+            var i = Number(window.prompt("Digite um numero:"))
+            var M = Math.random() * 5
+            var X = Math.trunc(M)
+            res1.innerHTML = `<p><mark> ${X}</mark></p>` 
+            if (i == X) {
+                res2.innerHTML = `<font color = "green"> Parabéns! </font> você acertou!`
+            } else {
+                res2.innerHTML = `Você <font color = "red"> errou </font> tente novamente.`
+            }
+
+
+
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

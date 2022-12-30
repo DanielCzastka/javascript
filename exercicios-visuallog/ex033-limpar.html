@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emprestimo</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        section#cad{
+            width: 600px;
+            margin: auto;
+            font-family: sans-serif;
+
+        }
+
+        h1#p{
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        h1#s{
+            background-color: rgba(7, 7, 130, 0.87);
+            color: white;
+            text-align: center;
+
+        }
+
+        div{
+            background-color: rgba(177, 172, 172, 0.462);
+            text-align: right;
+            padding: 10px;
+            margin-bottom: 25px;
+        }
+
+        input{
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 14pt;
+        }
+
+       input#txtn3{
+        width:50px ;
+        margin-right: 183px;
+        }
+
+        section#res{
+            width: 700px;
+            margin:auto;
+            text-align: center;
+            font-size: 16pt;
+            font-family: sans-serif;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cad">
+        <h1 id="p">Financiamento com prestações fixas</h1>
+        <h1 id="s">Simule o financiamento com prestações fixas</h1>
+        <div>
+        <p>N°. de messes <input type="number" name="txtn3" id="txtn3"></p>
+        <p>Valor do imóvel <input type="number" name="txtn1" id="txtn1"></p>
+        <p>Salário <input type="number" name="txtn2" id="txtn2"></p>
+        
+        <p><input type="button" value="Verificar" class="button" onclick="verificar()"> <input type="button" value="Limpar" class="button" onclick="limpar()"></p>
+        </div>
+    </section>
+    <section id="res">
+        <p></p>
+    </section>
+
+    <script>
+            var imv = document.getElementById("txtn1")
+            var sal = document.getElementById("txtn2")
+            var par = document.getElementById("txtn3")
+            var res = document.getElementById("res")
+
+        function verificar() {
+            
+            var n1 = Number(imv.value)
+            var n2 = Number(sal.value)
+            var n3 = Number(par.value)
+
+            if (n3 <= 48) {
+               
+                var porc = (n2 * 30) / 100
+
+                if (n3 > porc) {
+                    res.innerHTML = (`Infelismente seu imprestimo não pode ser aprovado, verifique o valor do imóvel e tente novamente.`)
+                } else {
+                    var mes = n1 / n3
+                    res.innerHTML = (`Emprestimo aprovado. O valor do imovel é de ${n1.toLocaleString(`pt-BR`, {style: `currency`, currency:`BRL`})}, Você terá uma parcela mensal de ${mes.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} reais, durante ${n3} Anos. `)
+                }
+            } else{
+                window.alert("Numero de anos exedido, tente novamente.")
+            }
+        }
+        
+    </script>
+
+
+</body>
+
+</html>

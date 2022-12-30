@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        body{
+            font: Normal 18pt arial;
+        }
+
+        h1{
+            font-family: 'pacifico';
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        button{
+            font-size: 15pt;
+            padding: 30px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Analizando data e hora do Sistema</h1>
+    <button id="button" onclick="verificar()">Iniciar Ánalise</button>
+   <div id="res">
+
+   </div>
+
+    <script>
+        function verificar(){
+        let res = document.getElementById("res")
+        let data = new Date()
+        let dia = data.getDate()
+        let mes = data.getMonth()
+        let ano = data.getFullYear()
+        let dias = data.getDay()
+        let hora = data.getHours()
+        let min = data.getMinutes()
+        let seg = data.getSeconds()
+        
+
+        res.innerHTML = `<p>Dia: <mark>${dia}</mark></p>`
+        switch(mes){
+            case 0:
+            res.innerHTML += `<p>Mês: <mark>Jan</mark></p>`
+            break
+            case 1:
+            res.innerHTML += `<p>Mês: <mark>Fev</mark></p>`
+            break
+            case 2:
+            res.innerHTML += `<p>Mês: <mark>Mar</mark></p>`
+            break
+            case 3:
+            res.innerHTML += `<p>Mês: <mark>Abr</mark></p>`
+            break
+            case 4:
+            res.innerHTML += `<p>Mês: <mark>Mai</mark></p>`
+            break
+            case 5:
+            res.innerHTML += `<p>Mês: <mark>Jun</mark></p>`
+            break
+            case 6:
+            res.innerHTML += `<p>Mês: <mark>Jul</mark></p>`
+            break
+            case 7:
+            res.innerHTML += `<p>Mês: <mark>Ago</mark></p>`
+            break
+            case 8:
+            res.innerHTML += `<p>Mês: <mark>Set</mark></p>`
+            break
+            case 9:
+            res.innerHTML += `<p>Mês: <mark>Out</mark></p>`
+            break
+            case 10:
+            res.innerHTML += `<p>Mês: <mark>Nov</mark></p>`
+            break
+            case 11:
+            res.innerHTML += `<p>Mês: <mark>Dez</mark></p>`
+            break
+        }
+        res.innerHTML += `<p>Ano: <mark>${ano}</mark></p>`
+        switch(dias){
+            case 0:
+            res.innerHTML += `<p>Dia da semana: <mark>Dom</mark></p>`
+            break
+            case 1:
+            res.innerHTML += `<p>Dia da semana: <mark>Seg</mark></p>`
+            break
+            case 2:
+            res.innerHTML += `<p>Dia da semana: <mark>Ter</mark></p>`
+            break
+            case 3:
+            res.innerHTML += `<p>Dia da semana: <mark>Qua</mark></p>`
+            break
+            case 4:
+            res.innerHTML += `<p>Dia da semana: <mark>Qui</mark></p>`
+            break
+            case 5:
+            res.innerHTML += `<p>Dia da semana: <mark>Sex</mark></p>`
+            break
+            case 6:
+            res.innerHTML += `<p>Dia da semana: <mark>Sáb</mark></p>`
+            break
+        }
+        res.innerHTML += `<p>Hora: <mark>${hora}</mark></p>`
+        res.innerHTML += `<p>Minuto: <mark>${min}</mark></p>`
+        res.innerHTML += `<p>Segundo: <mark>${seg}</mark></p>`
+
+
+        }
+</script>
+</body>
+</html>

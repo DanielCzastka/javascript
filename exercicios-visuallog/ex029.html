@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font: Normal 18pt Arial;
+        }
+
+        div {
+            background-color: aqua;
+            margin: auto;
+            text-align: center;
+            width: 500px;
+            border-radius: 10px;
+        }
+
+        #ano{
+            width: 35px;
+        }
+
+        #button{
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Reajuste de salário.</h1>
+        <p>Nome: <input type="name" name="txtname" id="name"></p>
+        <p>Salário: <input type="number" name="txtsalario" id="salario"></p>
+        <p>Experiencia (Anos): <input type="number" name="txtano" id="ano"></p>
+        <input type="button" value="Calcular" id="button" onclick="calcular()">
+
+        <section id="res">
+            ...
+        </section>
+    </div>
+    <script>
+        function calcular() {
+            var nome = document.querySelector("input#name")
+            var salario = document.querySelector("input#salario")
+            var ano = document.querySelector("input#ano")
+            var res = document.getElementById("res")
+
+            var n1 = Number(salario.value)
+            var n2 = Number(ano.value)
+
+            if(n2 == 0 || n1 == 0 || n2 < 0 || nome.value == 0){
+                window.alert("Verifique os dados e tente novamente")
+            }else if (n2 <= 3) {
+                aum = (n1 * 3) / 100
+                Nsal = n1 + aum
+                res.innerHTML = `Novo sálario de <strong> ${nome.value}</strong> é de ${Nsal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} Reais`
+            } else if (n2 > 3 && n2 <= 10) {
+                aum = (n1 * 12.5) / 100
+                Nsal = n1 + aum
+                res.innerHTML = `Novo sálario de <strong> ${nome.value}</strong> é de ${Nsal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} Reais`
+            } else {
+                aum = (n1 * 20) / 100
+                Nsal = n1 + aum
+                res.innerHTML = `Novo sálario de <strong> ${nome.value}</strong> é de ${Nsal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} Reais`
+            }
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

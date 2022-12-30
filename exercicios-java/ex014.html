@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+        body{
+            font: 16pt arial;
+        }
+
+        h1{
+            font-family: 'pacifico';
+            font-weight: normal;
+        }
+
+        button{
+            font-size: 15pt;
+            
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interagindo com o sistema</h1>
+    <button id="button" onclick="pesquisar()">Clique em mim</button>
+    <p id="res">...</p>
+
+    <script>
+        function pesquisar(){
+            let res = document.getElementById("res")
+
+
+            let data = new Date()
+            // let ano = data.getFullYear()
+            res.innerHTML =`O que eu recebi do cistema foi <mark> ${data} </mark>`
+
+        }
+    </script>
+</body>
+</html>

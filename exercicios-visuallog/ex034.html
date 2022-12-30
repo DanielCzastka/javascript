@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+    <style>
+        body{
+            font: normal 18pt arial;
+            background-color: rgba(128, 128, 128, 0.423);
+        }
+
+        div{
+            background-color: white;
+            width: 600px;
+            padding: 30px;
+            margin: auto;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        #txtp, #txta{
+            width: 60px;
+            height: 40px;
+            font-size: 18pt;
+        }
+
+        #button{
+            font-size: 15pt;
+            padding: 10px 19px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h1>Calculo de IMC</h1>
+        <p><input type="number" name="peso" id="txtp"> Kg</p>
+        <p><input type="number" name="altura" id="txta"> Mt</p>
+        <p><input type="button" value="Calcular" id="button" onclick="calcular()"></p>
+        <p id="res">...</p>
+    </div>
+
+    <script>
+        function calcular(){
+            var p = document.getElementById("txtp")
+            var a = document.getElementById("txta")
+            var res = document.getElementById("res")
+            var imc = p.value / (a.value * 2)
+
+            if(p.value == 0 || a.value == 0){
+                window.alert("Verifique os dados e tente novamente.")
+                res.innerHTML = `...`
+            }else if(imc < 18.5){
+                res.innerHTML = `IMC: ${imc.toFixed(1)}. ABAIXO DO PESO.`
+            }else if(imc >=18.5 && imc < 25){
+                res.innerHTML = `IMC: ${imc.toFixed(1)}. PESO IDEAL.`
+            }else if(imc >= 25 && imc < 30){
+                res.innerHTML = `IMC: ${imc.toFixed(1)}. SOBREPESO.`
+            }else if(imc >= 30 && imc < 40){
+                res.innerHTML = `IMC: ${imc.toFixed(1)}. OBESIDADE.`
+            }else if(imc >= 40 && imc < 100){
+                res.innerHTML = `IMC: ${imc.toFixed(1)}. OBESIDADE MÓRBIDA.`
+            }
+
+        }
+    </script>
+</body>
+
+</html>

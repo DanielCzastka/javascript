@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var nome = prompt('Qual é o seu nome? ')
+        // document.write('Seu no tem ' + nome.length + ' letras ')
+        // document.write('Seu nome em maiusculas ' + nome.toLowerCase()  + ' ficou bom? ')
+
+        var n1 = 145.5 
+        document.writeln(n1.toFixed(2).replace('.',","),'<br>') 
+
+        document.writeln(n1.toFixed(2), '<br>')
+        
+        var n1 = 1520.20
+
+        document.writeln(n1.toLocaleString ('pt-BR', {style: 'currency', currency: 'BRL'}), '<br>')
+       
+        document.writeln(n1.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'}), '<br>')
+       
+        document.writeln(n1.toLocaleString('pt-BR', {style: 'currency', currency: 'EUR'}))
+
+        
+    </script>
+</body>
+</html>

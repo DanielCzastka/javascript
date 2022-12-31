@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        body{
+            font: normal 15pt arial;
+        }
+        h1{
+            font-family: 'pacifico';
+            font-weight: 100;
+        }
+
+        #button{
+            height: 120px;
+        }
+
+        button{
+            font-size: 15pt;
+            padding: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tente adivinhar o meu número</h1>
+    <section id="button">
+        <button onclick="iniciar()">Tenta adivinhar</button>
+    </section>
+    <section id="res">
+        <p>Já pensei em um valor entre 1 e 100...</p>
+
+    </section>
+
+    <script>
+        let res = document.getElementById("res")
+        let but = document.getElementById("button")
+        let Numero = Math.round( Math.random() * 100)
+        function iniciar() {
+            let n1 = Number(window.prompt("Digite um número:"))
+            if (n1 == Numero) {
+                res.innerHTML += `<p><strong>PARABÉNS!</strong> você acertou! Eu tinha sorteado o valor ${Numero}!</p>`
+                but.innerHTML = ""
+            } else if(n1 > 100){
+                window.alert("Verifique os dados e tente novamente.")
+            } else if (n1 < Numero) {
+                res.innerHTML += `<p>Você falou ${n1}. Meu número é <strong>MAIOR!</strong></p>`
+            } else {
+                res.innerHTML += `<p>Você falou ${n1}. Meu número é <strong>MENOR!</strong></p>`
+            }
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

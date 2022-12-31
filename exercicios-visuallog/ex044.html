@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        font: normal 18pt arial;
+    }
+
+    button{
+        font-size: 15pt;
+        padding: 15px 30px;
+        border-radius: 30px;
+
+    }
+</style>
+
+</head>
+
+<body>
+    <h1>Contagem inteligente 2.0</h1>
+    <button onclick="contar()">Contar</button>
+
+   <p id="res">
+
+   </p>
+
+    <script>
+        function contar(){
+            let res = document.getElementById("res")
+            res.innerHTML = ``
+
+            let n1 = Number(window.prompt("INICIO"))
+            let n2 = Number(window.prompt("FIM"))
+            let n3 = Number(window.prompt("PASSO"))
+            if(n1 < n2){
+                for (C = n1; C <= n2; C += n3) {
+                    res.innerHTML += `${C}, `
+                }
+            } else{
+                for (C = n1; C >= n2; C -= n3) {
+                    res.innerHTML +=  `${C}, `
+
+                }
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

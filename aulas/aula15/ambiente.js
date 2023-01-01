@@ -7,7 +7,7 @@ let num = [4,8,7,5]
  //COLOCAR OS ELEMENTOS NA FORMA CRESCENTE 
  console.log(num.sort())
  //IMPRIMIR TODOS OS VALORES SEM CONCHETES
- for (let pos = 0; pos<num.length; pos++){
+ for (let pos = 0; pos < num.length; pos++){
     console.log(`A posição ${pos}, tem o valor ${num[pos]}`)
  }
  //SIMPLFICANDO 

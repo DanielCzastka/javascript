@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+        body{
+            font: normal 15pt arial;
+        }
+
+        button{
+            font-size: 15pt;
+            padding: 35px;
+        }
+
+        h1, h2{
+            font-family: 'pacifico';
+            font-weight: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Multiplas ações</h1>
+    <button onclick="iniciar()">Clique para iniciar</button>
+    <section id="res">
+
+    </section>
+
+    <script>
+        function iniciar() {
+            let res = document.getElementById("res")
+            let n1 = Number(window.prompt("Primeiro valor:"))
+            let n2 = Number(window.prompt("Segundo valor:"))
+            let esc =Number(window.prompt(`Valores informados: ${n1} e ${n2}. \nO que vamos fazer? \n[1] Somar\n[2] Subtrair \n[3] Multiplicar \n[4] Dividir`))
+
+            res.innerHTML = `<h2>Calculando...</h2>`
+            switch (esc) {
+                case 1:
+                    res.innerHTML += `<p>${n1} + ${n2} = <strong>${n1 + n2}</strong></p>`
+                    break
+                case 2:
+                    res.innerHTML += `<p>${n1} - ${n2} = <strong>${n1 - n2}</strong></p>`
+                break
+                case 3: 
+                    res.innerHTML += `<p>${n1} x ${n2} = <strong>${n1 * n2}</strong></p>`
+                break
+                case 4: 
+                    res.innerHTML += `<p>${n1} / ${n2} = <strong>${n1 / n2}</strong></p>`
+                break
+                default:
+                    res.innerHTML += `<p>OPCÃO INVALIDA! Você digitou ${n1} e ${n2}, mas não sei o que fazer com eles.</p>`
+                break
+
+            }
+        }
+    </script>
+</body>
+
+</html>

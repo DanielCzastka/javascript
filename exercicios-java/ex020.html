@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Descubra a estação do o</h1>
+    <button onclick="verificar()">Imforme o mês aqui</button>
+    <p id="res">
+    </p>
+
+    <script>
+        function verificar(){
+            let res = document.getElementById("res")
+            let mes = window.prompt("Digite o mês em extenso(ex: Setembro")
+            let estação
+            switch (mes.toUpperCase()){
+                case "JANEIRO": case "FEVEREIRO": case "MARÇO":
+                    estação = "INVERO"
+                break
+
+                case "ABRIL": case "MAIO": case "JUNHO":
+                    estação = "PRIMAVERA"
+                break
+
+                case "JULHO": case "AGOSTO": case "SETEMBRO": 
+                    estação = "VERÃO"
+                break
+
+                case "OUTUBRO": case "NOVEMBRO": case "DEZEMBRO":
+                    estação = "OUTONO"
+                break
+                
+                default:
+                    estação = "INDEFINIDA"
+                break
+            }
+            res.innerHTML = `No mês de <mark>${mes}</mark>, estamos na estação <mark>${estação}</mark>.`
+        }
+    </script>
+
+
+
+</body>
+</html>

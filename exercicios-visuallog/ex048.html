@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font: normal 18pt arial;
+            background-color: black;
+           
+        }
+
+        div{
+            background-color: white;
+            width: 600px;
+            height: 250px;
+            padding: 20px;
+            border-radius: 30px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1{
+            font-style: oblique;
+            text-decoration: underline;
+        }
+
+        button{
+            background-color: green;
+            color: white;
+            font-size: 15pt;
+            padding: 8px;
+            border-radius: 30px;
+
+        }
+
+        p{
+            background-color: rgba(175, 170, 170, 0.585);
+            width: 500px;
+            height: 40px;
+            margin: auto;
+            margin-top: 29px;
+            border-radius: 30px;
+            font-size: 25pt;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+    <h1>Somatórios</h1>
+    <button onclick="somar()">Somar</button>
+    <p id="res">
+
+    </p>
+    </div>
+    <script>
+        function somar() {
+            let res = document.getElementById("res")
+            res.innerHTML = ``
+            let s = 0
+            for (c = 1; c <= 7; c++) {
+                n = Number(window.prompt(`Digite o ${c}° numero:`))
+                s += n
+                if (c < 7) {
+                    res.innerHTML += `${n} + `
+                } else {
+                    res.innerHTML += `${n} =  `
+                }
+            }
+            res.innerHTML += `<mark>${s}</mark>`
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

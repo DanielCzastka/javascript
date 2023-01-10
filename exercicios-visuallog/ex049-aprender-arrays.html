@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font: normal 15pt arial;
+            text-align: center;
+        }
+
+        h1 {
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.475);
+        }
+
+        section {
+            width: 300px;
+            background-color: bisque;
+            padding: 20px;
+            margin: auto;
+            border: 2px solid;
+            border-radius: 25px;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.705);
+        }
+
+        section>ol {
+            columns: 2;
+        }
+
+        input {
+            width: 55px;
+            height: 35px;
+            font-size: 15pt;
+            border-radius: 10px;
+        }
+
+        #button {
+            width: 100px;
+            border-radius: 20px;
+            margin-left: 30px;
+        }
+
+        #res {
+            width: 200px;
+            height: 35px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-left: 65px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Numero de Par e Impares</h1>
+    <section>
+        <p>Digite os numero nos quadrados:</p>
+        <ol>
+            <li><input type="number" name="n1" id="txtn1"></li>
+            <li><input type="number" name="n1" id="txtn2"></li>
+            <li><input type="number" name="n1" id="txtn3"></li>
+            <li><input type="number" name="n1" id="txtn4"></li>
+            <li><input type="number" name="n1" id="txtn5"></li>
+            <li><input type="number" name="n1" id="txtn6"></li>
+        </ol>
+        <input type="button" value="Verificar" id="button" onclick=" verificar()">
+        <p id="res">
+
+        </p>
+    </section>
+
+    <script>
+        let s = 0
+        function verificar() {
+            let res = document.getElementById("res")
+           
+            // let n2 = document.getElementById('txtn2')
+            // let n3 = document.getElementById('txtn3')
+            // let n4 = document.getElementById('txtn4')
+            // let n5 = document.getElementById('txtn5')
+            // let n6 = document.getElementById('txtn6')
+            for (c = 0; c <= 5; c++) { 
+                 n[c] = document.getElementsByName("n1")
+                if(n[c] % 2 == 0){
+                s++
+                res.innerHTML = `Tem ${s} numeros pares.`
+                }
+            }
+           
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -60,11 +60,11 @@
         <p>Digite os numero nos quadrados:</p>
         <ol>
             <li><input type="number" name="n1" id="txtn1"></li>
-            <li><input type="number" name="n1" id="txtn2"></li>
-            <li><input type="number" name="n1" id="txtn3"></li>
-            <li><input type="number" name="n1" id="txtn4"></li>
-            <li><input type="number" name="n1" id="txtn5"></li>
-            <li><input type="number" name="n1" id="txtn6"></li>
+            <li><input type="number" name="n2" id="txtn2"></li>
+            <li><input type="number" name="n3" id="txtn3"></li>
+            <li><input type="number" name="n4" id="txtn4"></li>
+            <li><input type="number" name="n5" id="txtn5"></li>
+            <li><input type="number" name="n6" id="txtn6"></li>
         </ol>
         <input type="button" value="Verificar" id="button" onclick=" verificar()">
         <p id="res">
@@ -73,28 +73,33 @@
     </section>
 
     <script>
-        let s = 0
+        
+        document.body.style.background = "red"
         function verificar() {
             let res = document.getElementById("res")
-           
-            // let n2 = document.getElementById('txtn2')
-            // let n3 = document.getElementById('txtn3')
-            // let n4 = document.getElementById('txtn4')
-            // let n5 = document.getElementById('txtn5')
-            // let n6 = document.getElementById('txtn6')
-            for (c = 0; c <= 5; c++) { 
-                 n[c] = document.getElementsByName("n1")
-                if(n[c] % 2 == 0){
-                s++
-                res.innerHTML = `Tem ${s} numeros pares.`
+            let n1 = document.getElementById("txtn1")
+            let n2 = document.getElementById('txtn2')
+            let n3 = document.getElementById('txtn3')
+            let n4 = document.getElementById('txtn4')
+            let n5 = document.getElementById('txtn5')
+            let n6 = document.getElementById('txtn6')
+            let num = [n1.value, n2.value, n3.value, n4.value, n5.value, n6.value]
+          
+           res.innerHTML =``
+           let s = 0
+            for (c = 0; c <= 5; c++) {
+
+                if (num[c] % 2 == 0) {
+                    s++
+                    res.innerHTML = `Tem ${s} numeros pares.`
                 }
             }
-           
 
 
 
 
-            
+
+
 
 
 

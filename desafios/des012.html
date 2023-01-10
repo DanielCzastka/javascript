@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font: normal 18pt arial;
+        }
+
+        button{
+            font-size: 15pt;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <button onclick="verificar()">Verificar</button>
+    <div id="res">
+
+    </div>
+
+    <script>
+        function verificar(){
+            let res = document.getElementById("res")
+            let preA = Number(window.prompt("Qual éra o preço anterior do produto?"))
+            let preB = Number(window.prompt("Qual é o preço atual do produto? "))
+            res.innerHTML = `<h2>Analisando os valores informados</h2>`
+            res.innerHTML += `<p>O produto custava ${preA.toLocaleString("pt-br", {style: "currency", currency: "BRL"})} e agora custa ${preB.toLocaleString("pt-br", {style: "currency", currency: "BRL"})}.</p>`
+            if(preA < preB){
+                res.innerHTML += `<p>Hoje o preço ta mais caro.<p>`
+                    let sub = preB - preA
+                res.innerHTML += `<p>O prduto subiu ${sub.toLocaleString("pt-br", {style: "currency", currency: "BRL" })} e relação ao preço anterior.</p>` 
+                let porc = (sub * 100) / preA
+                res.innerHTML += `Uma variação de ${Math.round( porc)}% para cima.`
+            }else{
+                res.innerHTML += `<p>Hoje o produto ta mais barato.<p>`
+                    let sub = preA - preB
+                res.innerHTML += `<p>O prduto caiu ${sub.toLocaleString("pt-br", {style: "currency", currency: "BRL" })} e relação ao preço anterior.</p>` 
+                let porc = (sub * 100) / preB
+                res.innerHTML += `Uma variação de ${Math.round( porc)}% para baixo.`
+            }
+
+
+
+
+        }
+    </script>
+</body>
+</html>

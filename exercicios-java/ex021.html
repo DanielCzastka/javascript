@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+        body {
+            font: 12pt Arial;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Pacifico', cursive;
+            font-weight: normal;
+        }
+
+        button {
+            font-size: 12pt;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contando de 1 ate 10</h1>
+    <button onclick=" contar()">Contar de 1 ate 10</button>
+    <div id="res">
+
+    </div>
+
+    <script>
+        function contar() {
+            let res = document.getElementById("res")
+            res.innerHTML = `<h2>Contando de 1 até 10</h2>`
+            for (c = 1; c <= 10; c++) {
+                res.innerHTML += `${c}  &#x1F449;`
+            }
+            res.innerHTML += `&#x1F3C1;`
+
+
+
+
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

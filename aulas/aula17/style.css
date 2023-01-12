@@ -1,6 +1,36 @@
+body {
+    background-color: rgba(60, 128, 212);
+    font: normal 15pt arial;
+    margin: auto;
+}
 
+h1{
+    color: white;
+    text-align: center;
+    font-style: italic;
+    
+}
 
+section {
+    background-color: white;
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
 
-#select{
+}
+
+div#res {
+    font-size:  15pt;
+    margin: auto;
+}
+
+#select {
     width: 200px;
+}
+
+footer{
+    color: white;
+    text-align: center;
+    font-style: italic;
 }

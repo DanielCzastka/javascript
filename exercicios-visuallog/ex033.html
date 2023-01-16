@@ -34,6 +34,7 @@
         div{
             background-color: rgba(177, 172, 172, 0.462);
             text-align: right;
+            height: 160px;
             padding: 10px;
             margin-bottom: 25px;
         }
@@ -47,6 +48,20 @@
        input#txtn3{
         width:50px ;
         margin-right: 183px;
+        }
+
+        .button{
+            padding: 5px;
+        }
+
+        .button:hover{
+            background-color: rgba(7, 7, 130, 0.87);
+            color: white;
+            padding: 8px;
+        }
+
+        .button:active{
+            background-color: aqua;
         }
 
         section#res{
@@ -101,6 +116,13 @@
             } else{
                 window.alert("Numero de anos exedido, tente novamente.")
             }
+        }
+        function limpar(){
+            sal.value = ``
+            imv.value = ``
+            par.value = ``
+            res.innerHTML = ``
+            par.focus()
         }
         
     </script>

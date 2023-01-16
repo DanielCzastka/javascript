@@ -43,7 +43,7 @@
             <input type="radio" name="sexo" id="sexoM" checked>
             <label for="sexoM">Masculino</label>
             <input type="radio" name="sexo" id="sexoF">
-            <label for="sexoM">Feminino</label>
+            <label for="sexoF">Feminino</label>
 
         </p>
         <input type="button" value="Caucular" id="button" onclick="caucular()">
@@ -63,7 +63,7 @@
         if(sex[0].checked){
             var des = (val.value * 5) / 100
             var valC = val.value - des
-            res.innerHTML = `O valor de desconto para <strong> ${nome} </strong> é de ${valC.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})} Reais`
+            res.innerHTML = `O valor de desconto para <strong> ${nome.value} </strong> é de ${valC.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})} Reais`
         }else {
             var des = (val.value * 13) / 100
             var valC = val.value - des

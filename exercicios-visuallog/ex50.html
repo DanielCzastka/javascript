@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font: normal 15pt arial;
+            background-color: rgb(132, 190, 210);
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50pt;
+            text-decoration: underline;
+            font-style: italic;
+            font-family: serif;
+            color: rgb(147, 14, 14);
+            text-shadow: 1px 1px 1px black;
+        }
+
+        button {
+            font-size: 15pt;
+            padding: 10px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        button:hover {
+            background-color: rgb(147, 14, 14);
+            color: white;
+        }
+
+        button:active {
+            background-color: white;
+            color: black;
+        }
+
+        div#res {
+            background-color: white;
+            width: 800px;
+            text-align: left;
+            columns: 4;
+            list-style-position: inside;
+            margin: auto;
+            border-radius: 15px;
+            margin-bottom: 15px;
+
+        }
+
+        div#res1 {
+            background-color: white;
+            width: 800px;
+            text-align: left;
+            columns: 4;
+            list-style-position: inside;
+            margin: auto;
+            border-radius: 15px;
+            margin-bottom: 15px;
+
+        }
+
+        p {
+            width: 800px;
+            background-color: rgb(147, 14, 14);
+            color: white;
+            margin: auto;
+            font-size: 15pt;
+            border-radius: 15px;
+        }
+
+
+        ul {
+            padding: 15px;
+            margin-top: 0px;
+        }
+
+        #button2 {
+            font-size: 15pt;
+            padding: 10px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        #button2:hover {
+            background-color: rgb(147, 14, 14);
+            color: white;
+        }
+
+        #button2:active {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sorteando números</h1>
+    <button onclick="sortear()">Sortear</button>
+    <div id="res">
+
+    </div>
+    <div id="res2">
+
+    </div>
+    <div id="res3">
+
+    </div>
+
+    
+
+    <script>
+
+        let res = document.querySelector('div#res')
+        let res2 = document.querySelector('div#res2')
+        let res3 = document.querySelector('div#res3')
+        function sortear() {
+            soma = 0
+            divi = 0
+            res.innerHTML = ``
+            res2.innerHTML = ``
+            res3.innerHTML = ``
+            for (c = 1; c <= 20; c++) {
+                let item1 = document.createElement('ul')
+                let item = document.createElement('li')
+                item.text = Math.round(Math.random() * 10)
+                res.appendChild(item1)
+                item1.appendChild(item)
+                item.innerHTML += `${item.text} `
+
+                if(item.text > 5){
+                    soma += 1
+                }
+
+                if(item.text % 3 == 0){
+                    divi += 1
+                }
+
+            }
+
+            let parag = document.createElement('div')
+            parag.text = (`<p>Mais detalhes abaixo:</p>`)
+            res2.appendChild(parag)
+            parag.innerHTML += `${parag.text} <br>`
+
+            // let button = document.createElement('button')
+            // button.type = 'button'
+            // button.innerHTML = 'Verificar'
+            // button.id = 'button'
+            // button.onclick = detalhes()
+            // res3.appendChild(button)
+            // res3.innerHTML = button.innerHTML
+
+            let button = document.createElement('input')
+            button.setAttribute('type', 'button')
+            button.setAttribute('id', 'button2')
+            button.setAttribute('value', 'Mais Detalhes')
+            button.setAttribute('onclick', 'verificar()')
+            parag.appendChild(button)
+
+          
+
+        } 
+
+         function verificar(){
+            res3.innerHTML = ``
+              res3.innerHTML += `<p style="background-color: blue;">Total de números maiores do que <strong>5</strong>:</p> <mark><strong>${soma}.</mark></strong>`
+              res3.innerHTML += `<p style="background-color: blue;">Total de números divisiveis por <strong>3</strong>:</p> <mark><strong>${divi}.</mark></strong>`
+            }
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

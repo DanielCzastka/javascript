@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font: normal 15pt arial;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        section {
+            background-color: aquamarine;
+            width: 800px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            margin: auto;
+
+        }
+
+        ul {
+            list-style-type: none;
+            columns: 2;
+
+        }
+
+        input {
+            width: 50px;
+            border-style: dashed;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        #button {
+            width: 100px;
+            border-style: solid;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Preço dos produtos</h1>
+    <section>
+        <ul>
+            <li>Maçã: R$<input type="number" name="maca" id="maca"></li>
+            <li>Pera: R$<input type="number" name="pera" id="pera"></li>
+            <li>Jaca: R$ <input type="number" name="jaca" id="jaca"></li>
+            <li>Mamão: R$<input type="number" name="mamao" id="mamao"></li>
+            <li>Abacaxi: R$<input type="number" name="abacaxi" id="abacaxi"></li>
+            <li>Jabuticaba: R$<input type="number" name="jabuticaba" id="jabuticaba"></li>
+            <li>Pepino: R$<input type="number" name="pepino" id="pepino"></li>
+            <li>Xuxu: R$<input type="number" name="xuxu" id="xuxu"></li>
+        </ul>
+        <input type="button" value="executar" id="button" onclick="executar()">
+
+    </section>
+    <section id="res">
+
+    </section>
+
+    <script>
+        function executar(){
+            let maca = document.getElementById("maca")
+            let pera = document.getElementById("pera")
+            let jaca = document.getElementById("jaca")
+            let mamao = document.getElementById("mamao")
+            let abacaxi = document.getElementById("abacaxi")
+            let jabuticaba = document.getElementById("jabuticaba")
+            let pepino = document.getElementById("pepino")
+            let xuxu = document.getElementById("xuxu")
+            let res = document.getElementById("res")
+            let Tot = []
+            Tot = [maca.value, pera.value, jaca.value, mamao.value, abacaxi.value, jabuticaba.value, pepino.value, xuxu.value]
+            let maior = 0
+            let menor = 1000000
+            for(let i in Tot){
+                if(Tot[i] == 0){
+                    window.alert("Verifique os dados e tente novamente.")
+                }
+            }
+
+            for(let i = 0; i <= Tot.length; i++){
+                if(Tot[i] > maior){
+                    maior = Tot[i]
+                }
+            }
+            for(let i = 0; i <= Tot.length; i++){
+                if(Tot[i] < menor){
+                    menor = Tot[i]
+
+                }
+            }
+
+           
+            res.innerHTML = `<p>O maior preço é de: ${maior.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})} - `
+            res.innerHTML += (`<p>O menor preço é de: ${menor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})} - </p>`)
+
+        }
+    </script>
+</body>
+
+</html>

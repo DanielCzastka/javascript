@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+    <style>
+        body{
+            font: normal 16pt arial;
+        }
+
+        button{
+            font-size: 15pt;
+            padding: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Situação do aluno</h1>
+    <button onclick="iniciar()">Entrar com as notas</button>
+    <p >Clique no botão para informar as notas do aluno</p>
+    <div id="res">
+
+    </div>
+
+    <script>
+        function iniciar() {
+            let res = document.getElementById("res")
+            let nome = window.prompt("Qual é o seu nome?")
+            let nota1 = Number(window.prompt("Primeira nota"))
+            let nota2 = Number(window.prompt("Segunda nota"))
+            let media = (nota1 + nota2) / 2
+
+            if (media < 3) {
+                res.innerHTML = `<h2>Analisando a situação de ${nome}`
+                res.innerHTML += `<p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong>`
+                res.innerHTML += `Com média abaixo de 3,0, o aluno está <strong><span 
+            style="background-color: #ff000081; color: red;">REPROVADO<span></strong>`
+            } else if (media >= 3 && media < 6) {
+                res.innerHTML = `<h2>Analisando a situação de ${nome}`
+                res.innerHTML += `<p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong>`
+                res.innerHTML += `Com média entre 3,0 e 6,0 o aluno está em <strong><span 
+                style="background-color: #ffff004b; color: #909002;">RECUPERAÇÃO<span></strong>`
+            } else {
+                res.innerHTML = `<h2>Analisando a situação de ${nome}`
+                res.innerHTML += `<p>Com as notas ${nota1} e ${nota2}, a <strong>média é ${media}</strong>`
+                res.innerHTML += `Com média acima de 6,0 o aluno está <strong><span 
+                    style="background-color: #05eb058c; color: green;">APROVADO<span></strong>`
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>

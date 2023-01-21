@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <h1>Verificar Idade</h1>
+    <button onclick="iniciar()">Iniciar</button>
+    <div id="res">
+
+    </div>
+
+    <script>
+        let vt = []
+        let maior = 0
+        let mais18 = 0
+        let men5 = 0
+        let soma = 0
+        function iniciar() {
+            let res = document.getElementById("res")
+
+            for (i = 0; i < 10; i++) {
+                vt[i] = Number(window.prompt(`${i + 1}° pessoa:`))
+                soma += vt[i]
+                if (vt[i] >= 18) {
+                    mais18 += 1
+                } else if (vt[i] < 5) {
+                    men5 += 1
+                }
+                if (maior < vt[i]) {
+                    maior = vt[i]
+                }
+            }
+            let media = soma / 10
+
+            res.innerHTML += `A  media de idade do grupo é: ${media}<br>`
+            res.innerHTML += `Numero de pessoas acima dos 18 anos: ${mais18}<br>`
+            res.innerHTML += `Numero de pessoas abaixo dos 5 anos: ${men5}<br>`
+            res.innerHTML += `A maior idade registrada foi de: ${maior}<br>`
+
+        }
+
+    </script>
+</body>
+
+</html>

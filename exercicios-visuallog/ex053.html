@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>Cdastrando pessoas</h1>
+    <button onclick="iniciar()">INICIAR</button>
+    <div id="res"></div>
+   
+    <script>
+        function iniciar(){
+            let res = document.getElementById('res')
+            // ------------------------------------
+            let div = document.createElement('div')
+            res.appendChild(div)
+            // -----------------------------------
+            let pg1 = document.createElement('p')
+            pg1.innerHTML = `Sexo`
+            div.appendChild(pg1)
+            // -----------------------------------
+            let imp1 = document.createElement('input')
+            imp1.setAttribute('type', 'radio')
+            imp1.setAttribute('name', 'sexo')
+            imp1.setAttribute('id', 'sexM')
+            pg1.appendChild(imp1)
+            let lab1 = document.createElement('label')
+            lab1.setAttribute('for', 'sexM')
+            lab1.setAttribute('value', 'M')
+            lab1.innerText = 'M'
+            pg1.appendChild(lab1)
+            // ---------------------------------------
+            let imp2 = document.createElement('input')
+            imp2.setAttribute('type', 'radio')
+            imp2.setAttribute('name', 'sexo')
+            imp2.setAttribute('id', 'sexF')
+            pg1.appendChild(imp2)
+            let lab2 = document.createElement('label')
+            lab2.setAttribute('for', 'sexF')
+            lab2.setAttribute('value', 'F')
+            lab2.innerText = 'F'
+            pg1.appendChild(lab2)
+            // -------------------------------------
+            let pg3 = document.createElement('p')
+            pg3.innerHTML += `Idade: `
+            div.appendChild(pg3)
+            let imp3 = document.createElement('input')
+            imp3.setAttribute('type', 'number')
+            imp3.setAttribute('id', 'n1')
+            imp3.setAttribute('value', 'Sexo')
+            pg3.appendChild(imp3)
+
+
+            
+
+
+
+        }
+    </script>
+</body>
+</html>

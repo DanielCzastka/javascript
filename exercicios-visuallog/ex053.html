@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
 </head>
+
 <body>
     <h1>Cdastrando pessoas</h1>
     <button onclick="iniciar()">INICIAR</button>
+    <p id="res0"></p>
     <div id="res"></div>
-   
+    <div id="res1"></div>
+
     <script>
-        function iniciar(){
-            let res = document.getElementById('res')
+        // tem que fazer 2 vezes pq se não ele nao zera o input no cadastro do enviar
+        let M20 = 0
+        let soma = 0
+        let somaH = 0
+        let tot = 0
+        let H = 0
+        let M = 0
+        let res1 = document.getElementById('res1')
+        let res = document.getElementById('res')
+        let res0 = document.getElementById('res0')
+        function iniciar() {
+            // pra zerar o cadastro do iniciar
+            M20
+            soma = 0
+            somaH = 0
+            H = 0
+            M = 0
+            tot = 0
+            res0.innerHTML = `Total de pessoas cadastradas: ${tot}`
+            // pra quando clicar o botão iniciar 2 vezes e tambem pra apagar o resultado()
+            res.innerHTML = ``
+            res1.innerHTML = ``
             // ------------------------------------
             let div = document.createElement('div')
             res.appendChild(div)
@@ -52,13 +76,76 @@
             imp3.setAttribute('id', 'n1')
             imp3.setAttribute('value', 'Sexo')
             pg3.appendChild(imp3)
-
-
-            
-
+            // ----------------------------------------
+            let button1 = document.createElement('input')
+            button1.setAttribute('type', 'button')
+            button1.setAttribute('value', 'enviar')
+            button1.setAttribute('id', 'button1')
+            button1.setAttribute('onclick', 'enviar()')
+            res.appendChild(button1)
 
 
         }
+
+        function enviar() {
+            let sexo = document.getElementsByName('sexo')
+            let idade = document.querySelector('input#n1')
+            tot += 1
+            res0.innerHTML = `Total de pessoas cadastradas: ${tot}`
+            if (idade.value == 0) {
+                window.alert(' Verifique os dados e tente novamente')
+                tot = 0
+                res0.innerHTML = `Total de pessoas cadastradas: ${tot}`
+            }
+
+            // consertou o resultado quando tenta cadastrar mais de 5 pessoas:
+
+            if (tot <= 5) {
+                let anos = Number(idade.value)
+                soma += anos
+                if (sexo[0].checked) {
+                    H += 1
+                    somaH += anos
+                } else {
+                    M += 1
+                }
+                if (sexo[1].checked && anos >= 20) {
+                    M20 += 1
+                }
+
+                idade.value = ``
+                idade.focus()
+            }
+            // Aparece o botão de resultado
+            if (tot == 5) {
+                let button = document.createElement('input')
+                button.setAttribute('type', 'button')
+                button.setAttribute('value', 'resultado')
+                button.setAttribute('id', 'button')
+                button.setAttribute('onclick', 'resultado()')
+                res.appendChild(button)
+            } else if (tot > 5) {
+                window.alert('Número total de pessoas atingido!')
+                // mantem o tot no 5
+                tot = 5
+                res0.innerHTML = `Total de pessoas cadastradas: ${tot}`
+
+            }
+        }
+        function resultado() {
+            media = soma / tot
+            res1.innerHTML = `<p>Homens cadastrados: ${H}</p>`
+            res1.innerHTML += `<p>Mulheres cadastradas: ${M}</p>`
+            res1.innerHTML += `<p>Média de idade do grupo: ${Math.round(soma / tot)}</p>`
+            res1.innerHTML += `<p>Média de idade dos Homens: ${Math.round(somaH / H)}</p>`
+            res1.innerHTML += `<p>Mulheres com mais de 20 anos: ${Math.round(M20)}</p>`
+
+
+        }
+        
+
+
     </script>
 </body>
+
 </html>

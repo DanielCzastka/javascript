@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastro 2</title>
+    <style>
+        body {
+            font: normal 15pt arial;
+            background-color: rgba(137, 43, 226, 0.252);
+        }
+
+        h1 {
+            font-style: italic;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        p{
+            margin: 10px;
+        }
+        
+        p#res0{
+            text-align: center;
+            margin: auto;
+        }
+
+        div#res {
+            background-color: white;
+            width: 800px;
+            height: 500px;
+            margin: auto;
+            font-size: 20pt;
+        }
+
+        input#peso, #altura {
+            width: 80px;
+            height: auto;
+            font-size: 25pt;
+            text-align: center;
+            margin-left: 100px;
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+
+        input#Next, #resultado, #zero{
+            font-size: 15pt;
+            margin: 20px;
+            padding: 6px;
+            border-radius: 10px;
+        }
+        
+
+
+    </style>
+
+</head>
+
+<body>
+    <h1>Cadastro 02</h1>
+    <p id="res0"></p>
+    <div id="res">
+
+
+    </div>
+
+
+    <script>
+        let grande = 0
+        let pequeno = 0
+        let m90 = 0
+        let somaA = 0
+        let tot = 0
+        let res0 = document.querySelector("p#res0")
+        let res = document.querySelector("div#res")
+        res0.innerHTML = `Total de pessoas cadastradas: ${tot}`
+        //    PESO
+        let imp = document.createElement("input")
+        imp.setAttribute("type", "number")
+        imp.setAttribute("name", "peso")
+        imp.setAttribute("id", "peso")
+        res.appendChild(imp)
+
+        let lab = document.createElement("label")
+        lab.setAttribute("for", "peso")
+        lab.innerText = " KG"
+        res.appendChild(lab)
+
+        // ALTURA
+        let imp2 = document.createElement("input")
+        imp2.setAttribute("type", "number")
+        imp2.setAttribute('name', "altura")
+        imp2.setAttribute("id", "altura")
+        res.appendChild(imp2)
+
+        let lab2 = document.createElement("label")
+        lab2.setAttribute("for", "altura")
+        lab2.innerHTML = " Metros <sup>2</sup>"
+        res.appendChild(lab2)
+
+        // BOTÃO NEXT
+
+        let next = document.createElement("input")
+        next.setAttribute("type", "button")
+        next.setAttribute("value", "Next")
+        next.setAttribute("id", "Next")
+        next.setAttribute("onclick", "proximo()")
+        res.appendChild(next)
+
+        function proximo() {
+            tot += 1
+            if (imp.value == 0 || imp2.value == 0) {
+                window.alert("verifique os dados e tente novamente.")
+                tot += -1
+                res0.innerHTML = `Total de pessoas cadastradas: ${tot}`
+
+            } else if (tot <= 7) {
+                res0.innerHTML = `Total de pessoas cadastradas: ${tot}`
+                let n1 = Number(imp.value)
+                let n2 = Number(imp2.value)
+                somaA += n2
+                if (n1 > 90) {
+                    m90 += 1
+                }
+                if (n1 < 50 && n2 < 1.60) {
+                    pequeno += 1
+                }
+                if (n1 >= 100 && n2 >= 1.90) {
+                    grande += 1
+                }
+                imp.value = ``
+                imp2.value = ``
+                imp.focus()
+                if (tot == 7) {
+                    // BOTÃO DOS RESULTADOS
+                    res0.innerHTML = `Total de pessoas cadastradas: ${tot}`
+                    let resul = document.createElement("input")
+                    resul.setAttribute("type", "button")
+                    resul.setAttribute("value", "Resultado")
+                    resul.setAttribute("id", "resultado")
+                    resul.setAttribute("onclick", "final()")
+                    res.appendChild(resul)
+
+                    // BOTÃO ZERAR
+
+                    let zero = document.createElement("input")
+                    zero.setAttribute("type", "button")
+                    zero.setAttribute("value", "Zerar")
+                    zero.setAttribute("id", "zero")
+                    zero.setAttribute("onclick", "zerar()")
+                    res.appendChild(zero)
+                }
+
+            } else {
+                window.alert("numero maximo de pessas cadastradas")
+            }
+
+
+        }
+        // RESULTADO
+        let novadiv = document.createElement("div")
+        novadiv.setAttribute("id", "res1")
+        res.appendChild(novadiv)
+
+        function final() {
+            novadiv.innerHTML = `<p>À média de altura é de: ${Math.round(somaA / tot)}</p>`
+            novadiv.innerHTML += `<p>Pessoas com mas de 90kg: ${m90}</p>`
+            novadiv.innerHTML += `<p>Pessoas com menos de 50 kg e menores que 1.60m de altura: ${pequeno}</p>`
+            novadiv.innerHTML += `<p>Pessoas com mais de 100 kg e maiores que 1.90m de altura: ${grande}</p>`
+        }
+
+        function zerar(){
+         grande = 0
+         pequeno = 0
+         m90 = 0
+         somaA = 0
+         tot = 0
+         res0.innerHTML = `Total de pessoas cadastradas: ${tot}`
+         imp.value = ``
+         imp2.value = ``
+         novadiv.innerHTML = ``
+        }
+
+
+    </script>
+</body>
+
+</html>

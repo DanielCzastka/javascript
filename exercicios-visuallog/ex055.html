@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+        body {
+            font: Normal 20pt Arial;
+            background-color: rgb(135, 135, 182);
+        }
+
+        div {
+            background-color: white;
+            width: 500px;
+            height: 300px;
+            padding: 30px;
+            border-radius: 20px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: "pacifico";
+            font-weight: normal;
+            color: blue;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        button {
+            font-size: 15pt;
+            padding: 10px;
+        }
+
+        p {
+            font-size: 16pt;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Sorteio...</h1>
+        <button id="button" onclick="sorteio()">Sortear</button>
+        <p>Adivinhe um numero entre 1 e 10</p>
+        <p id="res"></p>
+        <section id="res1"> </section>
+        <section id="res2">
+            <p></p>
+        </section>
+    </div>
+
+    <script>
+        let sub = 4
+        let rand = Math.random() * 10
+        let X = Math.trunc(rand)
+        function sorteio() {
+
+            let res1 = document.getElementById("res1")
+            let res2 = document.getElementById("res2")
+            let p = document.getElementById("res")
+
+            let i = Number(window.prompt("Digite um numero:"))
+            sub -= 1
+
+            p.innerHTML = `Você tem ${sub} tentativas`
+            if (i > 10 || i < 0 || i == ''){
+                window.alert("Verifique os dados e tente novamente.")
+                sub = 4
+                p.innerHTML = `Você tem ${sub} tentativas`
+            }
+
+
+            if (i == X) {
+                res2.innerHTML = `<font color = "green"> Parabéns! </font> você acertou!`
+                res1.innerHTML = `<p>O numero é: <mark> ${X}</mark></p>`
+                
+                p.innerHTML = `Você tem ${sub} tentativas`
+            } else {
+                if (sub <= 0){
+                    window.alert("tentativas esgotadas, reinicie a pagina e tente novamente.")  
+                    sub = 0
+                    p.innerHTML = `Você tem ${sub} tentativas`
+                }else{
+                    res2.innerHTML = `Você <font color = "red"> errou </font> tente novamente.`
+                  
+                }
+            }
+
+
+
+
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

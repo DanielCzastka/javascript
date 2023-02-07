@@ -25,7 +25,8 @@
     <h1>somatório de números aleatórios</h1>
     <button onclick="iniciar()">Iniciar</button>
     <div id="res">
-
+    </div>
+    <div id="res1">
     </div>
 
     <script>
@@ -34,23 +35,21 @@
         function iniciar() {
             do {
                 let res = document.getElementById("res")
-                let ran = Math.random() * 10
+                let res1 = document.getElementById("res1")
+                let ran = Math.random() * 5
                 let ran1 = Math.round(ran)
                 soma += ran
-                // res.innerHTML = `<p>A soma dos números é <mark>${Math.round(soma)}</mark></p>`
+                
                 res.innerHTML += `<p> ${ran1}</p>`
-                if (ran1 == 10){
-                    c = 10
+                if (ran1 == 5){
+                    break
                 } else {
                     c++
                     
                 }
 
             }while (c <= 10)
-
-
-
-
+            res1.innerHTML = `<p>A soma dos números é <mark>${Math.round(soma)}</mark></p>`
         }
     </script>
 

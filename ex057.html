@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salário</title>
+    <style>
+        body{
+            font: normal 15pt arial;
+            background-color: rgba(0, 0, 255, 0.304);
+            margin: auto;
+            text-align: center;
+        }
+
+        #div{
+            background-color: aliceblue;
+            width: 800px;
+            height: auto;
+            margin: auto;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+        #cont, #fim{
+            margin: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cadastro de salario</h1>
+    <section id="section">
+        <div id="div">
+            <p id="parag">
+                Sexo:
+            </p>
+            <p id="sal">
+                Salário => R$ 
+            </p>
+            <p id="but">
+
+            </p>
+        </div>
+    </section>
+
+    <script>
+        let sec = document.getElementById("section")
+        let parag = document.getElementById("parag")
+        let sal = document.getElementById("sal")
+        let but = document.getElementById("but")
+        // IMPUT RADIO
+        // M ---------------------------------
+        let inpSXm = document.createElement("input")
+        inpSXm.setAttribute("type", "radio")
+        inpSXm.setAttribute("name", "sexo")
+        inpSXm.setAttribute("id", "masc")
+        parag.appendChild(inpSXm)
+
+        let labSXm = document.createElement("label")
+        labSXm.setAttribute("for", "masc")
+        labSXm.setAttribute("value", "M")
+        labSXm.innerText = "M"
+        parag.appendChild(labSXm)
+
+        // F -----------------------------------
+        let inpSXf = document.createElement("input")
+        inpSXf.setAttribute("type", "radio")
+        inpSXf.setAttribute("name", "sexo")
+        inpSXf.setAttribute("id", "fem")
+        parag.appendChild(inpSXf)
+
+        let labSXf = document.createElement("label")
+        labSXf.setAttribute("for", "fem")
+        labSXf.setAttribute("value", "F")
+        labSXf.innerText = "F"
+        parag.appendChild(labSXf)
+
+        // IPUT NUMBER
+        // ------------------------------------------
+        let impSal = document.createElement("input")
+        impSal.setAttribute("type", "number")
+        impSal.setAttribute("id", "salario")
+        sal.appendChild(impSal)
+
+        // BUTTON CONTINUAR
+        // ------------------------------------------
+        let cont = document.createElement("input")
+        cont.setAttribute("type", "button")
+        cont.setAttribute("value", "Continuar")
+        cont.setAttribute("id", "cont")
+        cont.setAttribute("onclick", "continuar()")
+        but.appendChild(cont)
+
+        // BUTTON FIM
+        // ------------------------------------------
+        let fim = document.createElement("input")
+        fim.setAttribute("type", "button")
+        fim.setAttribute("value", "Fim")
+        fim.setAttribute("id", "fim")
+        fim.setAttribute("onclick", "fim()")
+        but.appendChild(fim)
+
+</script>
+</body>
+
+</html>

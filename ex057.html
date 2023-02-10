@@ -43,14 +43,20 @@
             <p id="but">
 
             </p>
+            <p id="res">
+
+            </p>
         </div>
     </section>
 
     <script>
+        let somaM = 0
+        let somaF = 0
         let sec = document.getElementById("section")
         let parag = document.getElementById("parag")
         let sal = document.getElementById("sal")
         let but = document.getElementById("but")
+        let res = document.getElementById("res")
         // IMPUT RADIO
         // M ---------------------------------
         let inpSXm = document.createElement("input")
@@ -100,9 +106,36 @@
         fim.setAttribute("type", "button")
         fim.setAttribute("value", "Fim")
         fim.setAttribute("id", "fim")
-        fim.setAttribute("onclick", "fim()")
+        fim.setAttribute("onclick", "end()")
         but.appendChild(fim)
 
+
+        function continuar(){
+            let sexo = document.getElementsByName("sexo")
+            let valor = document.getElementById("salario")
+            let n1 = Number(valor.value)
+           if (sexo[0].checked){
+            somaM += n1
+           }else if(sexo[1].checked){
+            somaF += n1
+           }else{
+            window.alert("Selecione o sexo cadastrado!")
+           }
+           impSal.value = ``
+           impSal.focus()
+        }
+
+        function end(){
+            res.innerHTML = `Total de salario Masculino: ${somaM}<br>`
+            res.innerHTML += `Total de salario Feminino: ${somaF}`
+
+            somaF = 0
+            somaM = 0
+
+
+        }
+
+       
 </script>
 </body>
 

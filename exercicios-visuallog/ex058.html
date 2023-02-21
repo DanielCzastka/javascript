@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: lightgray;
+            font: normal 15pt arial;
+            margin: auto;
+            text-align: center;
+            
+        }
+
+        input#idade{
+            font-size: 15pt;
+            width: 50px;
+            padding: 4px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        button{
+            font-weight: bolder;
+            font-size: 12pt;
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        div#res{
+            width: 400px;
+            height: auto;
+            background-color: lightgray;
+            border-radius: 10px;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 >Media de idade da turma</h1>
+    
+  
+    <label for="idade">Quantos anos você tem?</label><br>
+    <input type="number" name="idade" id="idade"><br>
+    <button onclick="proximo()" >Proximo</button>
+    <div id="res">
+
+    </div>
+    <script>
+        var soma = 0
+        var tot = 0
+        var n1 = 0
+        var res = document.getElementById("res")
+        var idade = document.getElementById("idade")
+        function proximo(){
+           
+            if(idade.value == 999){
+               res.innerHTML = "<p> Programa encerrado! </p>"
+                res.innerHTML+= `<p> Existem ${tot} alunos na tuma. A média de idade da turma é de ${soma/tot}. Anos`
+                idade.value = ""
+                soma = 0
+                tot = 0
+                n1 = 0 
+                idade.focus()
+
+            }else{
+                tot += 1
+                n1 = Number(idade.value)
+                soma += n1
+                idade.value = ""
+                idade.focus()
+                
+            }
+            
+
+        }
+
+        let parg = document.createElement("p")
+        parg.setAttribute("id", "parg")
+        parg.innerText = "*Para finalizar o programa digite (999)."
+        window.document.body.appendChild(parg)
+    </script>
+</body>
+</html>

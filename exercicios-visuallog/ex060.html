@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <h1>Cadastro</h1>
+    <div id="div1"></div>
+    <div id="div2"></div>
+
+
+    <script>
+        var nomes = ''
+        var idades = 0
+        var MaisV = 0
+        var div1 = document.getElementById("div1")
+        var div2 = document.getElementById("div2")
+
+        //DIVnome -----------------------------------------
+        var divN = document.createElement("div")
+        divN.setAttribute("id", "divN")
+        divN.innerText = "Nome: "
+        div1.appendChild(divN)
+        //NOME ----------- -----------------------------------
+        var nome = document.createElement("input")
+        nome.setAttribute("type", "text")
+        nome.setAttribute("id", "nome")
+        divN.appendChild(nome)
+
+        //DIVidade -----------------------------------------
+        var divI = document.createElement("div")
+        divI.setAttribute("id", "divI")
+        divI.innerText = "Idade: "
+        div1.appendChild(divI)
+        //IDADE----------------------------------------------
+        var idade = document.createElement("input")
+        idade.setAttribute("type", "number")
+        idade.setAttribute("id", "idade")
+        divI.appendChild(idade)
+
+        //DIVsexo--------------------------------------------
+        var divS = document.createElement("div")
+        divS.setAttribute("id", "divS")
+        divS.innerText = "Sexo : "
+        div1.appendChild(divS)
+        //SEXOm----------------------------------------------
+        var sexoM = document.createElement("input")
+        sexoM.setAttribute("type", "radio")
+        sexoM.setAttribute("id", "sexoM")
+        sexoM.setAttribute("name", "sexo")
+        divS.appendChild(sexoM)
+        //LABELm--------------------------------------------
+        var labM = document.createElement("label")
+        labM.setAttribute("for", "sexoM")
+        labM.innerText = "M"
+        divS.appendChild(labM)
+        //SEXOf---------------------------------------------
+        var sexoF = document.createElement("input")
+        sexoF.setAttribute("type", "radio")
+        sexoF.setAttribute("id", "sexoF")
+        sexoF.setAttribute("name", "sexo")
+        divS.appendChild(sexoF)
+        //LABELf--------------------------------------------
+        var labF = document.createElement("label")
+        labF.setAttribute("for", "sexoF")
+        labF.innerText = "F"
+        divS.appendChild(labF)
+
+        //BUTTONproximo------------------------------------------
+        var but = document.createElement("input")
+        but.setAttribute("type", "button")
+        but.setAttribute("id", "button")
+        but.setAttribute("value", "Proximo")
+        but.setAttribute("onclick", "proximo()")
+        div1.appendChild(but)
+        
+        //BUTTONfim------------------------------------------
+        var butF = document.createElement("input")
+        butF.setAttribute("type", "button")
+        butF.setAttribute("id", "buttonF")
+        butF.setAttribute("value", "Fim")
+        butF.setAttribute("onclick", "FIM()")
+        div1.appendChild(butF)
+
+        function pergunta(){
+           var resp = window.prompt("Quer continuar? [S/N]")
+           if(resp == "S"){
+            proximo()
+           }else{
+            window.alert("Programa finalisado")
+           }
+        }
+
+        function proximo() {
+          
+            nomes = document.getElementById("nome")
+            idades = document.getElementById("idade")
+
+            if(MaisV < idades.value){
+                MaisV = nomes.value
+            }
+
+            nomes.value = ``
+            idades.value = ``
+            nomes.focus()
+            
+
+
+        }
+
+        function FIM(){
+         div2.innerHTML=MaisV
+        }
+
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

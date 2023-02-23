@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Lista de Pessoas</h1>
+    <div id="res">
+
+    </div>
+    <div id="res2">
+
+    </div>
+
+
+    <script>
+        var maior = 0
+        var numeroH = 0
+        var menorM = 99999999999
+        var somaH = 0
+        var mediaH = 0
+        var res = document.getElementById("res")
+        var res2 = document.getElementById("res2")
+        //--------------------------------------------
+        var divI = document.createElement("div")
+        divI.setAttribute("id", "divI")
+        divI.innerText = "Idade: "
+        res.appendChild(divI)
+        //--------------------------------------------
+        var divS = document.createElement("div")
+        divS.setAttribute("id", "divS")
+        divS.innerText = "Sexo: "
+        res.appendChild(divS)
+        //--------------------------------------------
+        var divB = document.createElement("div")
+        divB.setAttribute("id", "divB")
+        res.appendChild(divB)
+        //--------------------------------------------
+        var imp = document.createElement("input")
+        imp.setAttribute("type", "number")
+        imp.setAttribute("id", "idade")
+        divI.appendChild(imp)
+        //--------------------------------------------
+        var sexM = document.createElement("input")
+        sexM.setAttribute("type", "radio")
+        sexM.setAttribute("name", "sexo")
+        sexM.setAttribute("id", "sexM")
+        divS.appendChild(sexM)
+        //--------------------------------------------
+        var labM = document.createElement("label")
+        labM.setAttribute("for", "sexM")
+        labM.innerText = "M"
+        divS.appendChild(labM)
+        //--------------------------------------------
+        var sexF = document.createElement("input")
+        sexF.setAttribute("type", "radio")
+        sexF.setAttribute("name", "sexo")
+        sexF.setAttribute("id", "sexF")
+        divS.appendChild(sexF)
+        //--------------------------------------------
+        var labF = document.createElement("label")
+        labF.setAttribute("for", "sexF")
+        labF.innerText = "F"
+        divS.appendChild(labF)
+        //--------------------------------------------
+        var impB = document.createElement("input")
+        impB.setAttribute("type", "button")
+        impB.setAttribute("id", "button")
+        impB.setAttribute("value", "Proximo")
+        impB.setAttribute("onclick", "proximo()")
+        divB.appendChild(impB)
+        //--------------------------------------------
+        var final = document.createElement("input")
+        final.setAttribute("type", "button")
+        final.setAttribute("value", "Fim")
+        final.setAttribute("onclick", "fim()")
+        divB.appendChild(final)
+
+        function proximo() {
+            var idade = document.getElementById("idade")
+            var sexo = document.getElementsByName("sexo")
+
+            if (idade.value > maior) {
+                maior = idade.value
+
+            }
+            if (sexo[0].checked) {
+                numeroH += 1
+                var n1 = Number(idade.value)
+                somaH += n1
+            }
+            if (sexo[1].checked && idade.value < menorM) {
+                menorM = idade.value
+            }
+
+
+
+            idade.value = ""
+            idade.focus()
+        }
+
+        function fim() {
+            res2.innerHTML = `<p>Maior idade ${maior}</p>`
+
+            res2.innerHTML += `<p>Numero de Homens ${numeroH}</p>`
+            res2.innerHTML += `<p> Mulher com a menor idade ${menorM}</p>`
+            res2.innerHTML += `<p> Media de idade entre o Homesns ${somaH / numeroH}</p>`
+            maior = 0
+            numeroH = 0
+            menorM = 99999999999
+            somaH = 0
+            mediaH = 0
+            idade.value = ""
+            idade.focus()
+
+        }
+
+
+    </script>
+</body>
+
+</html>

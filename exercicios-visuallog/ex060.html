@@ -15,9 +15,17 @@
 
 
     <script>
+        var M18 = 0
+        var M30 = 0
+        var tot = 0
+        var soma = 0 
+        var IfN = ''
+        var If = 9999999999999999
+        var sexos = 0
         var nomes = ''
         var idades = 0
-        var MaisV = 0
+        var MaisVV = 0
+        var MaisVN = ''
         var div1 = document.getElementById("div1")
         var div2 = document.getElementById("div2")
 
@@ -100,10 +108,28 @@
           
             nomes = document.getElementById("nome")
             idades = document.getElementById("idade")
+            sexos = document.getElementsByName("sexo")
+           
 
-            if(MaisV < idades.value){
-                MaisV = nomes.value
+            if(MaisVV < idades.value){
+                MaisVN = nomes.value
             }
+            if(idades.value < If && sexos[1].checked){
+               
+                If = idades.value
+                IfN = nomes.value
+               
+            
+            }
+            if(idades.value <=18 && sexos[1].checked){
+                M18 +=1
+               }
+            if(idades.value >= 30 && sexo[0].checked){
+                M30 += 1
+            }
+            var n1 = Number(idades.value)
+            soma += n1
+            tot += 1 
 
             nomes.value = ``
             idades.value = ``
@@ -114,7 +140,13 @@
         }
 
         function FIM(){
-         div2.innerHTML=MaisV
+         div2.innerHTML=`<p>Nome da pessoa mais velha: ${MaisVN}</p>`
+         div2.innerHTML+= `<p>Nome da mulher mais Jovem: ${IfN}</p>`
+         div2.innerHTML+= `<p>A media de idade do grupo: ${soma/tot}</p>`
+         div2.innerHTML+= `<p>Homens com mais de 30 anos ${M30}</p>`
+         div2.innerHTML+= `<p>Mulheres com menos de 18 anos: ${M18}</p>`
+        
+         
         }
 
     </script>

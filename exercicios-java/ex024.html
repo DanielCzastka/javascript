@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contando de 10 a 1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+        body {
+            font: normal 16pt arial;
+        }
+
+        button {
+            font-size: 15pt;
+            padding: 30px;
+        }
+        
+        h1,
+        h2{
+            font-family: 'pacifico';
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contagen regreciva de 10 ate 1</h1>
+    <button onclick="contar()">Contar de 10 a 1</button>
+    <p>Aperte o botão acima para contar</p>
+    <div id="res">
+
+    </div>
+
+    <script>
+        var res = document.getElementById("res")
+
+        function contar(){
+            res.innerHTML = `<h2>Contagem Regressiva de 10 a 1</h2>`
+            for(c=10;c>0;c--){
+                res.innerHTML+= `${c} &#x1F449;`
+            }
+            res.innerHTML += `&#x1F3C1;`
+
+        }
+
+    </script>
+</body>
+
+</html>

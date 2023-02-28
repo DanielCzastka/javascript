@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastro Fc</title>
+</head>
+<body>
+    <h1>Cadastro Faça Enquanto</h1>
+    <div id="res"></div>
+    <div id="res2"></div>
+
+
+    <script>
+        var M21 = 0
+        var n1 = 0
+        var todos = []
+        var id = 0
+        var soma = 0
+        var res = document.getElementById("res")
+        var res2 = document.getElementById("res2")
+        
+        var idade = document.createElement("input")
+        idade.setAttribute("type", "number")
+        idade.setAttribute("id", "idade")
+        res.appendChild(idade)
+
+        var but = document.createElement("input")
+        but.setAttribute("type", "button")
+        but.setAttribute("id", "button")
+        but.setAttribute("value", "Iniciar")
+        but.setAttribute("onclick", "iniciar()")
+        res.appendChild(but)
+
+        var but2 = document.createElement("input")
+        but2.setAttribute("type", "button")
+        but2.setAttribute("id", "button2")
+        but2.setAttribute("value", "Fim")
+        but2.setAttribute("onclick", "fim()")
+        res.appendChild(but2)
+
+        function iniciar(){
+            todos[soma] = idade.value
+              n1 = Number(idade.value)
+            id += n1
+            soma += 1 
+
+            if(n1 >=21){
+                M21 += 1
+            }
+
+            idade.value=''
+            idade.focus()
+          
+        }
+        function fim(){
+            res2.innerHTML = `<p>Quantidade de idades digitadas: ${soma}</p>`
+            res2.innerHTML += `<p>Média de idade: ${Math.round(id/soma) }</p>`
+            res2.innerHTML += `<p>Quantidade de pessoas com mais de 21 anos: ${M21}</p>`
+
+            for(c=0;c<soma;c++){
+                res2.innerHTML+=`${todos[c]} - `
+            }
+        }
+
+
+       
+    </script>
+
+</body>
+</html>

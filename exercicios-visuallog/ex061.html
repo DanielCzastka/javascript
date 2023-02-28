@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem</title>
+</head>
+<body>
+    <h1>Contagem</h1>
+    <div id="res"></div>
+    <script>
+        var c = 0
+        var res = document.getElementById("res")
+        do{
+            res.innerHTML += `${c} - `
+            c = c + 3
+        }while(c<=30)
+        res.innerHTML += ` Acabou!`
+    
+    </script>
+</body>
+</html>

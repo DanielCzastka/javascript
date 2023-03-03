@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Lendo numeros</h1>
+    <div id="res"></div>
+    <div id="res2"></div>
+
+    <script>
+
+        var r = "S"
+        var par = []
+        var tot = 0
+        var totp = 0
+        var soma = 0
+        var menor = 99999999999999999
+        var res = document.getElementById("res")
+        var res2 = document.getElementById("res2")
+
+        var b = document.createElement("input")
+        b.setAttribute("type", "button")
+        b.setAttribute("id", "button")
+        b.setAttribute("value", "Iniciar")
+        b.setAttribute("onclick", "enviar()")
+        res.appendChild(b)
+
+
+
+        function enviar() {
+            do {
+                let n1 = Number(window.prompt("Digite um numero"))
+
+
+                if (n1 < menor) {
+                    menor = n1
+                }
+                if (n1 % 2 == 0) {
+                    par[totp] = n1
+                    totp += 1
+                }
+                tot += 1
+                soma += n1
+
+                r = window.prompt("Quer continuar?[S/N] ")
+
+            } while (r == "S")
+
+            res2.innerHTML = `<p>Somatório entre todos os numeros: ${soma}</p>`
+            res2.innerHTML += `<p>Menor numero: ${menor}</p>`
+            res2.innerHTML += `<p>Média dos numeros: ${soma / tot}</p>`
+            res2.innerHTML += `<p>Valores pares:</p>`
+
+            for (var c = 0; c < totp; c++) {
+                res2.innerHTML += `<p>${par[c]},</p>`
+            }
+
+            r = "S"
+            par = []
+            tot = 0
+            totp = 0
+            soma = 0
+            menor = 99999999999999999
+        }
+
+
+
+    </script>
+</body>
+
+</html>

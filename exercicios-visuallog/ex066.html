@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex66</title>
+    
+    <style>
+        body{
+            font: normal 16pt arial;
+        }
+
+        #num{
+            font-size: 16pt;
+            width: 50px;
+            border: solid 3px black ;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        #button{
+            background-color: green;
+            color: white;
+            font-size: 16pt;
+            padding: 5px;
+            border-radius: 10px;
+
+        }
+
+       
+        #button:active{
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Tabuada</h1>
+    <p>Qual tabuada você deseja? <input type="number" id="num"><button id="button"
+            onclick="iniciar()">Verificar</button></p>
+    <div id="res"></div>
+
+
+    <script>
+        var res = document.getElementById("res")
+        var num = document.getElementById("num")
+
+        function iniciar(){
+            res.innerHTML = ""
+            let n1 = Number(num.value)
+            for(c = 1; c <= 10; c++){
+                res.innerHTML += `<p>${n1} x ${c} = ${n1*c}</p>`
+            }
+            num.value =""
+            num.focus()
+        }
+    </script>
+</body>
+
+</html>

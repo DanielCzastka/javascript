@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font:normal 16pt arial;
+        }
+
+        button{
+            font-size: 15pt;
+            padding: 5px;
+            border-radius: 8px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contagem</h1>
+    <button onclick="iniciar()">Iniciar</button>
+    <div id="res"></div>
+    <script>
+    var res = document.getElementById("res")        
+        function iniciar() {
+            res.innerHTML = ``
+            var num = window.prompt("Digite um numero:")
+            for(var c = 0; c <= num; c++){
+                res.innerHTML += `${c} , `
+            }
+            res.innerHTML += "Fim!"
+
+        }
+    </script>
+</body>
+
+</html>

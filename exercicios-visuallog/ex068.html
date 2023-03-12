@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex068</title>
+
+    <style>
+
+        #button{
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <div id="imp">
+
+    </div>
+    <div id="res">
+        
+    </div>
+
+    <script>
+        var mulher = 0
+        var m100 = 0
+        var totf = 0
+        var mp = 0
+        var imp = document.getElementById("imp")
+        var res = document.getElementById("res")
+
+        imp.innerHTML = `<p>Sexo:</p>`
+        //MASCULINO
+        var sexoM = document.createElement("input")
+        sexoM.setAttribute("type", "radio")
+        sexoM.setAttribute("id", "masc")
+        sexoM.setAttribute("name", "sexo")
+        imp.appendChild(sexoM)
+        //---------------------------------------------------
+        var labM = document.createElement("label")
+        labM.setAttribute("for", "masc")
+        labM.innerHTML = "M"
+        imp.appendChild(labM)
+
+        //FEMENINO
+        var sexoF = document.createElement("input")
+        sexoF.setAttribute("type", "radio")
+        sexoF.setAttribute("id", "fem")
+        sexoF.setAttribute("name", "sexo")
+        imp.appendChild(sexoF)
+        //--------------------------------------------------
+        var labF = document.createElement("label")
+        labF.setAttribute("for", "fem")
+        labF.innerHTML = "F"
+        imp.appendChild(labF)
+
+        imp.innerHTML += `<p>Peso:</p>`
+        //PESO
+        var peso = document.createElement("input")
+        peso.setAttribute("type", "number")
+        peso.setAttribute("id", "peso")
+        imp.appendChild(peso) 
+
+        //BUTTON
+        var botao = document.createElement("input")
+        botao.setAttribute("type", "button")
+        botao.setAttribute("id", "button")
+        botao.setAttribute("value", "Cadastrar")
+        botao.setAttribute("onclick", "cadastrar()")
+        imp.appendChild(botao)
+    
+        function cadastrar(){
+            let sexo = document.getElementsByName("sexo")
+            let pesos = document.getElementById("peso")
+            let kg = Number(pesos.value)
+           
+            
+
+            if(sexo[1].checked){
+                mulher++
+                totf += kg
+            }
+            if(sexo[0].checked && mp < kg){
+                mp = kg
+            }
+            if(sexo[0].checked && kg > 100){
+                m100++
+            }
+
+            pesos.value=``
+            pesos.focus()
+
+
+
+            res.innerHTML = `<p>Total de mulheres cadastradas: ${mulher} </p>`
+            res.innerHTML += `<p> Homens com mais de 100 kg: ${m100}</p>`
+            res.innerHTML += `<p> Média de peso entre as mulheres: ${totf/mulher}</p>`
+            res.innerHTML += `<p> Maior peso entre os Homens: ${mp}</p>`
+
+
+
+        }
+    </script>
+</body>
+</html>

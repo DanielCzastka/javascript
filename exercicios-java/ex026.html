@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem inteligente</title>
+    <style>
+          @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+          body{
+            font: normal 16pt arial;
+          }
+
+          h1, h2{
+            font-family: 'pacifico';
+            font-weight: normal;
+          }
+
+          input{
+            font-size: 16pt;
+            width: 50px;
+          }
+
+          button{
+            background-color: green;
+            color: white;
+            font-size: 16pt;
+            padding: 8px;
+          }
+    </style>
+</head>
+
+<body>
+    <h1>Contagem "inteligente"</h1>
+    <p>
+        Use qualquer valor nas caixas, simule contagens crescentes e regressivas. Use também valores negativos.
+    </p>
+    <p>
+        Valor inicial: <input type="number" id="inicial">
+    </p>
+    <p>
+        Valor final: <input type="number" id="final">
+    </p>
+    <button onclick="contar()">
+        Contar
+    </button>
+    <p>
+        Preencha os dados acima e aperte o botão.
+    </p>
+    <div id="res">
+
+    </div>
+
+
+    <script>
+        var res = document.getElementById("res")
+        var inicial = document.getElementById("inicial")
+        var final = document.getElementById("final")
+        function contar() {
+            let n1 = Number(inicial.value)
+            let n2 = Number(final.value)
+
+            res.innerHTML += `<h2>Contando de ${n1} até ${n2}</h2>`
+           if (n1 == n2){
+            res.innerHTML += `<p>Não é possivel contar, pois os números são iguais &#x1F3C1;</p>`
+           }else if(n1 < n2){
+            for(let c = n1; c <= n2; c++){
+                res.innerHTML += `${c} &#x1F449;`
+            }
+            res.innerHTML += `&#x1F3C1;`
+           }else{
+            for (let c = n1; c >= n2; c--){
+                res.innerHTML += `${c} &#x1F449;`
+            }
+            res.innerHTML += `&#x1F3C1;`
+           }
+           inicial.value = ``
+           final.value = ``
+           inicial.focus()
+
+
+        }
+    </script>
+</body>
+
+</html>

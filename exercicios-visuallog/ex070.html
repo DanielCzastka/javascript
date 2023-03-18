@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex070</title>
+</head>
+<body>
+    <h1>Fibonacci</h1>
+<div id="res"></div>
+
+
+
+<script>
+    var res = document.getElementById("res")
+    var n1 = 0 
+    var n2 = 1
+    var soma = 0
+    var aux = 0
+    res.innerHTML = `${n1}`
+    res.innerHTML += `${n2}`
+    for (c = 1; c <= 10; c++){
+        soma = n1 + n2
+         
+        n1 = n2
+        n2 = soma
+
+        
+        res.innerHTML += `${soma}` 
+
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

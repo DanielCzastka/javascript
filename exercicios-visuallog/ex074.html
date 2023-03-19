@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex074</title>
+</head>
+
+<body>
+    <h1>5 ; 3</h1>
+    <div id="res"></div>
+
+    <script>
+        var res = document.getElementById("res")
+        var n = 0
+        var v = 5
+        var vet = []
+        //1° Forma
+        for (var c = 0; c <= 4; c++) {
+            n = 5
+            res.innerHTML += `[${n}] - `
+            n = 3
+            res.innerHTML += `[${n}] - `
+
+        }
+
+        res.innerHTML += `<br>`
+
+        //2° Forma
+        for (c = 0; c <= 9; c++) {
+            vet[c] = v
+            if (c % 2 == 0) {
+                vet[c] = 5
+            } else {
+                vet[c] = 3
+            }
+        }
+
+        for (c = 0; c <= 9; c++) {
+            res.innerHTML += `[${vet[c]}] - `
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

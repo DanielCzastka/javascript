@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex075</title>
+</head>
+<body>
+    <h1>Fibonacci</h1>
+    <div id="res"></div>
+
+
+    <script>
+        var res = document.getElementById("res")
+        var vet = []
+        var n1 = 1
+        var n2 = 1
+        var aux = 0
+        res.innerHTML = `[${n1}] - `
+       
+        for(var c = 1; c<= 15; c++){
+            aux = n1 + n2
+            vet[c] = n1 
+            n2 = n1
+            n1 = aux
+            
+        }
+        
+        for(c = 1; c<= 15; c++){
+            res.innerHTML += `[${vet[c]}] - `
+        }
+    </script>
+</body>
+</html>

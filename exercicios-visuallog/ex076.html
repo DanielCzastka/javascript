@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex076</title>
+</head>
+<body>
+    <h1>Numeros aleatórios.</h1>
+    <div id="res"></div>
+
+    <script>
+        var rand = []
+        var res = document.getElementById("res")
+        //Criar o botão de inicio
+        var button = document.createElement("input")
+        button.setAttribute("type", "submit")
+        button.setAttribute("id", "button")
+
+        //Criar evento de mause 
+        button.setAttribute("onmouseover","onLover(this)")
+        button.setAttribute("onmouseout", "onOut(this)")
+        button.setAttribute("onclick", "clicou(this)")
+        res.appendChild(button)
+       
+        // Função do Muse acima
+        function onLover(elemento){
+            elemento.style.backgroundColor = "lightblue"
+        }
+       
+        // Função do mause fora
+        function onOut(elemento){
+            elemento.style.backgroundColor = "lightgreen"
+        }
+
+        //Função clicou
+        function clicou(elemento){
+            elemento.style.backgroundColor = "red"
+        }
+
+
+        
+
+        function f1(){
+            //Preenche o Array
+            for(var c = 0; c < 7; c++){
+             rand[c] = Math.round(Math.random() * 100)
+            }
+
+            //Imprime dntro do Array
+            for(c = 0; c < 7; c++){
+                console.log(rand[c])
+            }
+           
+            // Imprime o Array todo
+            console.log(rand)
+           
+            //Imprime no HTML o Array
+            for(c in rand){
+                res.innerHTML = `[${rand}]`
+            }
+
+        }
+
+        //Como o evento sobre o botão não foi posto acima na criação do mesmo, então cia-se uma finção onde adiciona-se isso após o caregamento completo da pagina. 
+        window.onload = function(){
+            let b = document.getElementById("button")
+            b.addEventListener("click", f1)
+        }
+
+
+
+
+    </script>
+</body>
+</html>

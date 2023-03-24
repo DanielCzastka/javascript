@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex078</title>
+    <style>
+        body{
+            font: normal 15pt arial;
+            background-color: gray;
+        }
+
+        main{
+            margin: auto;
+            background-color: white;
+            width: 500px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+    <div id="res1"></div>
+    <div id="res"></div>
+    </main>
+    <script>
+
+        var vet = []
+        for (var c = 1; c <= 15; c++ ){
+            vet[c] = Math.round(Math.random()* 100)
+            document.getElementById("res1").innerHTML += `<p>${c}° Numero: <mark>${vet[c]}</mark>.</p>`
+
+        }
+        for (var c = 1; c <= 15; c++ ){
+        if(vet[c] % 10 == 0){
+            document.getElementById("res").innerHTML += `<p>Numero ${vet[c]} Multiplo de 10 na posição <span style="background-color: yellow;">${c}</span>.</p>`
+        }
+        }
+    </script>
+</body>
+</html>

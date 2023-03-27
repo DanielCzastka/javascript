@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex079</title>
+
+</head>
+
+<body>
+    <h1>PARES</h1>
+
+
+    <script>
+        var c = 0
+        var arr = []
+        var n1 = 0
+
+        var div = document.createElement("div")
+        document.body.appendChild(div)
+
+        var div2 = document.createElement("div")
+        document.body.appendChild(div2)
+
+        var imp = document.createElement("input")
+        imp.setAttribute("type", "number")
+        imp.setAttribute("id", "num")
+        div.appendChild(imp)
+
+        var botao = document.createElement("input")
+        botao.setAttribute("type", "submit")
+        botao.setAttribute("onclick", "proximo()")
+        botao.setAttribute("id", "botao")
+        botao.setAttribute("value", "Enviar")
+        div.appendChild(botao)
+
+        function proximo() {
+
+
+            n1 = Number(imp.value)
+            if (c < 15) {
+                arr[c] = n1
+                c++
+                div2.innerHTML = `<p>Números cadastrados: ${c}</p>`
+                imp.value = ``
+                imp.focus()
+                if (c == 15) {
+                    div2.innerHTML = `<p>Números cadastrados: ${c}</p>`
+
+                    for(var i in arr){
+                        if(arr[i] % 2 == 0){
+                          div2.innerHTML += `Numero PAR ${arr[i]} na posição: ${i}<br>`
+                        }
+                    }
+                  
+                }
+
+            }
+
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

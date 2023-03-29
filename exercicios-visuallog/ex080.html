@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex080</title>
+    <style>
+        body{
+            font: normal 15pt arial;
+            background-color: #2f0bcf86;
+            color: red;
+        }
+
+        h1{
+            font-size: 50pt;
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            text-shadow: 2px 2px 2px black;
+            text-decoration: underline;
+            text-align: center;
+        }
+        
+        section{
+            width: 500px;
+            height: 300px;
+            padding: 20px;
+            margin: auto;
+            border-radius: 40px;
+            background-color: whitesmoke;
+            text-align: center;
+            color: black;
+        }
+
+        input#num{
+            width: 40px;
+            font-size: 15pt;
+            padding: 2px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        input#but{
+            font-size: 12pt;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: rgb(35, 253, 35);
+            color: white;
+            text-shadow: 2px 0.5px 1px black;
+            
+        }
+
+        input#but:hover{
+            font-size: 12pt;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: rgb(196, 193, 8);
+            color: white;
+            text-shadow: 2px 0.5px 1px black;
+        }
+
+        input#but:active{
+            font-size: 12pt;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: rgb(196, 8, 8);
+            color: white;
+            text-shadow: 2px 0.5px 1px black;
+        }
+
+        div#res1{
+            background-color: #2f0bcf86;
+            width: 250px;
+            height: auto;
+            margin: auto;
+            margin-top: 25px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 40px;
+        }
+       
+    </style>
+
+</head>
+
+<body>
+    <h1>Sorteio</h1>
+    <section>
+        <div id="res"></div>
+        <div id="res1"></div>
+    </section>
+
+
+    <script>
+        var vet = []
+        var val = 0
+        var soma = 0
+        var res = document.getElementById("res")
+        var res1 = document.getElementById("res1")
+
+        rande()
+        function rande() {
+            for (var c = 1; c <= 30; c++) {
+                vet[c] = Math.round(Math.random() * 15)
+            }
+        }
+
+        var lab = document.createElement("label")
+        lab.setAttribute("for", "num")
+        lab.innerHTML = "Digite um Númerocentre (1 e 15):  "
+        res.appendChild(lab)
+
+        var imp = document.createElement("input")
+        imp.setAttribute("type", "number")
+        imp.setAttribute("id", "num")
+        res.appendChild(imp)
+
+        var but = document.createElement("input")
+        but.setAttribute("type", "submit")
+        but.setAttribute("id", "but")
+        but.setAttribute("value", "Sortear")
+        but.setAttribute("onclick", "sortear()")
+        res.appendChild(but)
+
+        res1.innerHTML = `O resultado vai aparecer aqui &#x1F609`
+
+        function sortear() {
+            val = Number(imp.value)
+
+            if (val <= 0 || val > 15 || val == "") {
+                window.alert("Digite um numero entre 1 e 15, Tente novamente.")
+                imp.value = ""
+                imp.focus()
+            } else {
+                res1.innerHTML = `Número ${val} encontrado na posição: <br>`
+                for (var c = 1; c <= 30; c++) {
+                    if (vet[c] == val) {
+                        res1.innerHTML += `-> ${c}° <br>`
+                        soma++
+                    }
+                }
+                res1.innerHTML += `Ao todo o numero <strong>${val}</strong> foi sorteado <mark style = 'border-radius: 40px;'> ${soma}</mark> vezes.`
+
+                imp.value = ``
+                imp.focus()
+                soma = 0
+            }
+            rande()
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

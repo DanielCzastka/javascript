@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex081</title>
+    <style>
+        body{
+          font-family: Arial, Helvetica, sans-serif;
+      }
+
+      table{
+          border-collapse: collapse;
+          width: 600px;
+      }
+
+      td, th{
+          border: 1px solid black;
+          padding: 10px;
+          text-align: center;
+      }
+  </style>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <div id="cad"></div>
+    <div>
+        <table>
+            <thead  id="tab">
+               
+            </thead>
+        </table>
+    </div>
+    <div id="res"></div>
+
+    <script>
+        var cad = document.getElementById("cad")
+        var res = document.getElementById("res")
+        var tab = document.getElementById("tab")
+        var Cadastro = {}
+        var cont = 0
+        var soma = 0
+        var Cname = []
+        var id = []
+
+        // nome------------------------------------------------
+        var labN = document.createElement("label")
+        labN.setAttribute("for", "nome")
+        labN.innerHTML = `Nome: `
+        cad.appendChild(labN)
+
+        var nome = document.createElement("input")
+        nome.setAttribute("type", "name")
+        nome.setAttribute("id", "nome")
+        cad.appendChild(nome)
+
+        // idade-----------------------------------------------
+        var labI = document.createElement("label")
+        labI.setAttribute("for", "idade")
+        labI.innerHTML = `Idade: `
+        cad.appendChild(labI)
+        
+        var idade = document.createElement("input")
+        idade.setAttribute("type", "number")
+        idade.setAttribute("id", "idade")
+        cad.appendChild(idade)
+
+        // button-----------------------------------------------
+        var but = document.createElement("input")
+        but.setAttribute("type", "submit")
+        but.setAttribute("id", "but")
+        but.setAttribute("onclick", "enviar()")
+        cad.appendChild(but)
+
+        // fim--------------------------------------------------
+        var finesh = document.createElement("input")
+        finesh.setAttribute("type", "submit")
+        finesh.setAttribute("value", "Fim")
+        finesh.setAttribute("id", "fim")
+        finesh.setAttribute("onclick", "fim()")
+        cad.appendChild(finesh)
+
+        function enviar(){
+            
+             Cadastro[cont]= {name: [nome.value], age: [idade.value]}
+             id[cont] = nome.value
+
+            cont++
+            nome.value = ``
+            idade.value = ``
+            nome.focus()
+            
+            id[cont] = idade.value
+            soma += id[cont] 
+            if(id[cont ] >= 25){
+                res.innerHTML += `<p>Pessoa com mais de 25 anos na posição: ${c}`
+            }
+
+
+
+
+
+                
+
+
+
+        }
+        function fim(){
+            var media = soma / cont
+            res.innerHTML += `<p> A média de idade das pessoas é de : ${media}</p>`
+        for(var c = 0; c< cont; c++){
+            console.log(Cadastro[c])
+            var b = JSON.stringify(Cadastro[c])
+
+         
+            tab.innerHTML += `<tr><td>${b}</td></tr>`
+
+
+            if(id[c] >= 25){
+                res.innerHTML += `<p>Pessoa com mais de 25 anos na posição: ${c}</p>`
+            }
+            }
+        
+
+        }
+
+
+        
+        
+
+
+    </script>
+
+
+</body>
+</html>

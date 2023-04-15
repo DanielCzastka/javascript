@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex082</title>
+</head>
+
+<body>
+    <div id="div">
+        <label id="lab" for="nota"></label>
+        <input type="number" name="nota" id="nota">
+        <input type="submit" value="Submit" id="sub" onclick="sub()">
+
+    </div>
+
+
+    <script>
+        let lab = document.getElementById("lab")
+        let nota = document.getElementById("nota")
+        let div = document.getElementById("div")
+        let n1 = []
+        let c = 1
+        lab.innerHTML += `Nota: (${c})`
+        if (c<=10){
+        function sub() {
+            
+            n1[c] = Number(nota.value)
+            c++
+            lab.innerHTML = `Nota: (${c})`
+
+        }
+    }else{
+        let sub = document.getElementById("sub")
+        sub = document.createElement("input")
+        sub.setAttribute("type", "button")
+        sub.setAttribute("id", "fim")
+        sub.setAttribute("value", "fim")
+        div.appendChild(sub)
+    }
+
+
+
+
+    </script>
+</body>
+
+</html>

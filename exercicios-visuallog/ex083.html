@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex083</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18pt;
+            background-color: lightgray;
+            text-align: center;
+        }
+
+        button {
+            background-color: greenyellow;
+            font-size: 20pt;
+            border: 2px black;
+            margin: 25px;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        button:hover{
+            background-color: blue;
+            color: white;
+            border: 1px rgba(0, 0, 0, 0.417);
+        }
+
+        button:active{
+            background-color: red;
+            color: rgb(47, 63, 16);
+        }
+
+        p {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20pt;
+            font-weight: bold;
+            margin: 15px;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        #res {
+            width: auto;
+            height: auto;
+            background-color: white;
+            border-radius: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="start()">Start</button>
+    <div id="res"></div>
+
+    <script>
+
+        let res = document.getElementById("res")
+        let ran = []
+        let aux = 0
+        function start() {
+            res.style = "padding: 15px;"
+            for (let c = 1; c <= 20; c++) {
+                ran[c] = Math.round(Math.random() * 100)
+            }
+            res.innerHTML = `<p>Numeros sorteados :</p>`
+
+            for (c = 1; c <= 20; c++) {
+                if (c < 20) {
+                    res.innerHTML += ` ${ran[c]} - `
+                } else {
+                    res.innerHTML += ` ${ran[c]}. `
+
+                }
+            }
+
+            for (c = 1; c <= 19; c++) {
+                for (let i = c + 1; i <= 20; i++) {
+                    if (ran[c] > ran[i]) {
+                        aux = ran[c]
+                        ran[c] = ran[i]
+                        ran[i] = aux
+                    }
+                }
+            }
+
+            res.innerHTML += `<p>Numeros sorteados em ordem :</p>`
+
+
+            for (c = 1; c <= 20; c++) {
+                if (c < 20) {
+                    res.innerHTML += ` ${ran[c]} - `
+                } else {
+                    res.innerHTML += ` ${ran[c]}. `
+
+                }
+            }
+
+
+
+
+        }
+    </script>
+
+
+</body>
+
+</html>

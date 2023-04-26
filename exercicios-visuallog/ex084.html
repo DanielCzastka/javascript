@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex084</title>
+</head>
+
+<body>
+    <h1>Cadastro</h1>
+    <!-- <form method="get"> -->
+    <div>
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" id="nome" required placeholder="Nome" autocomplete="name">
+    </div>
+
+    <div>
+        <label for="idade">Idade: </label>
+        <input type="number" name="idade" id="idade" required placeholder="Inade (Anos)">
+    </div>
+
+    <div>
+        <input type="submit" value="Enviar" onclick="enviar()">
+        <input type="reset" value="Limpar" onclick="limpar()">
+    </div>
+
+    <div id="res"></div>
+    <div id="res2"></div>
+    <!-- </form> -->
+
+
+
+    <script>
+        let nome = document.getElementById("nome")
+        let idade = document.getElementById("idade")
+        let res = document.getElementById("res")
+        let res2 = document.getElementById("res2")
+        let n1 = []
+        let n2 = []
+        let c = 0
+
+
+
+
+        function enviar() {
+
+            if (c <= 8) {
+
+                n1[c] = nome.value
+                n2[c] = Number(idade.value)
+                c++
+                res.innerHTML = `Numero de pessoas cadastradas: ${c}`
+                if (c == 9) {
+                    let finesh = document.createElement("input")
+                    finesh.setAttribute("type", "button")
+                    finesh.setAttribute("value", "Fim")
+                    finesh.setAttribute("id", "fim")
+                    finesh.setAttribute("onclick", "fim()")
+                    res2.appendChild(finesh)
+                }
+                nome.value = ""
+                idade.value = ""
+                nome.focus()
+            } else {
+                window.alert("Numero maximo de pessoas atingido!")
+            }
+
+        }
+
+        function limpar() {
+            n1 = []
+            n2 = []
+            c = 0
+            nome.value = ""
+            idade.value = ""
+            nome.focus()
+            res.innerHTML = ""
+            res2.innerHTML = ""
+        }
+
+        function fim() {
+            res2.innerHTML=''
+            for (let cont = 0; cont <= 8; cont++) {
+
+                if (n2[cont] >= 18) {
+                    res2.innerHTML += `<p>Nome: ${n1[cont]} - Idade:${n2[cont]} Anos. Na posição: ${cont + 1}</p> `
+                }
+
+
+
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

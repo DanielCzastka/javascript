@@ -6,14 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-size: 15pt;
+            background-image: linear-gradient(to right, black, grey);
+            margin: auto;
+            text-align: center;
+            margin-top: 30px;
+
+        }
+
+        div {
+            width: 500px;
+            padding: 5px;
+            color: white;
+            margin: auto;
+            background-image: linear-gradient(to right, blue, green);
+        }
+
+        div#cadnome {
+            padding-top: 50px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+        div#res {
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            height: 50px;
+        }
+
+        input#but,
+        #lim {
+
+            color: white;
+            background-color: green;
+            font-size: 10pt;
+            padding: 10px;
+            border: 0px;
+            border-radius: 30px;
+            margin: 10px;
+
+
+        }
+
+        input#but:hover,
+        #lim:hover {
+
+            background-color: rgb(0, 21, 128);
+            border: 1px solid black;
+            box-sizing: border-box;
+            border-radius: 30px;
+
+
+        }
+
+        input#but:active,
+        #lim:active {
+
+            background-color: rgb(128, 0, 0);
+            border: 1px solid black;
+            box-sizing: border-box;
+            border-radius: 30px;
+
+
+        }
+    </style>
 </head>
 
 <body>
+
     <div id="cadnome"></div>
     <div id="cadsexo"></div>
     <div id="salario"></div>
     <div id="button"></div>
     <div id="res"></div>
+
 
 
     <script>
@@ -72,12 +140,14 @@
 
         let but = document.createElement("input")
         but.setAttribute("type", "submit")
+        but.setAttribute("id", "but")
         but.setAttribute("onclick", "submit()")
         button.appendChild(but)
 
         // Limpar
         let lim = document.createElement("input")
         lim.setAttribute("type", "reset")
+        lim.setAttribute("id", "lim")
         lim.setAttribute("onclick", "limpar()")
         button.appendChild(lim)
 
@@ -100,12 +170,17 @@
                     n2[cont] = true
                 }
                 n3[cont] = Number(pag.value)
-                res.innerHTML += cont
+
                 cont++
+                name.value = ``
+                pag.value = ``
+                name.focus()
+
                 if (cont == 5) {
                     but.value = "Resultado"
                 }
             } else {
+                res.innerHTML = ``
                 for (let c = 0; c < 5; c++) {
 
                     if (n2[c] == true & n3[c] >= 5000) {
@@ -125,8 +200,8 @@
 
         function limpar() {
             cont = 0
-            nome.value=''
-            pag.value=''
+            nome.value = ''
+            pag.value = ''
             n1 = []
             n2 = []
             n3 = []

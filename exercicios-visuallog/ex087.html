@@ -9,28 +9,29 @@
 </head>
 
 <body>
-    <div id=" res"></div>
+    <div id="res"></div>
 
 
 
     <script>
         let res = document.getElementById("res")
 
-        function resposta() {
+       
 
-            for (let c = 0; c < 3; c++) {
-                if(2 % 1 == 0){
-                res.innerHTML += "<p>------------------------------------</p>"
+            for (let c = 0; c < 3; c++){
+                if(c % 2 == 0){
+                    res.innerHTML += "<p>------------------------------------</p>"
                 }else{
                     res.innerHTML += "<p>Aprendendo Portugol </p>"
                 }
-
+                
 
             }
+            
 
-        }
+        
 
-        resposta()
+     
 
 
     </script>
